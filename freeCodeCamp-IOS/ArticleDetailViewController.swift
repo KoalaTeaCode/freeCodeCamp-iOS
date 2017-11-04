@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Down
 
 class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
 
@@ -25,16 +26,10 @@ class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
         let headerView = HeaderView(width: 375, height: 200)
         headerView.setupHeader(model: model)
         self.scrollView.addSubview(headerView)
-
-        webView = UIWebView(origin: headerView.bottomLeftPoint(), width: 375, height: 400)
-        webView.loadHTMLString(model.encodedPodcastDescription, baseURL: model.postLinkURL)
-        self.scrollView.addSubview(webView)
-        webView.delegate = self
-        webView.scalesPageToFit = true
-        webView.backgroundColor = .white
-        webView.scrollView.isScrollEnabled = false
         
-        webView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        let downView = try? DownView(frame: CGRect(x: 0, y: 200, width: self.view.width, height: self.view.height), markdownString: model.markdown!) {}
+        self.scrollView.insertSubview(downView!, belowSubview: headerView)
+        downView!.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
 
     override func didReceiveMemoryWarning() {

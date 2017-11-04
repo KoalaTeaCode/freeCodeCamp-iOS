@@ -26,6 +26,7 @@ class PodcastDetailViewController: UIViewController {
         self.scrollView.addSubview(headerView)
         
         let view = PodcastDescriptionView(origin: headerView.bottomLeftPoint(),width: 375, height: 20)
+        log.verbose("sd")
         view.setupView(podcastModel: model)
         scrollView.addSubview(view)
         view.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor,

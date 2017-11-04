@@ -58,6 +58,7 @@ class PodcastRepository: Repository<Podcast> {
                                             onFailure: @escaping RepositoryErrorCallback) {
         // Check if we made requests today
 //        let alreadLoadedStartToday = self.checkAlreadyLoadedNewToday(filterObject: filterObject)
+        // @TODO: Remove this when we can update local modals
         let alreadLoadedStartToday = false
         //@TODO: Fix this special case for recommneded. We can't load from disk here because we are display top podcasts when a user is not logged in
         if alreadLoadedStartToday && filterObject.type != PodcastTypes.recommended.rawValue {
@@ -86,9 +87,15 @@ class PodcastRepository: Repository<Podcast> {
         log.warning("from api")
         guard self.loading == false else { return }
         self.loading = true
+        
+        // @TODO: Remove
+        var type = filterObject.type
+        if (type == PodcastTypes.recommended.rawValue) {
+            type = PodcastTypes.top.rawValue
+        }
 
         // API Call and return
-        API.sharedInstance.getPosts(type: filterObject.type, createdAtBefore: filterObject.lastDate, tags: filterObject.tagsAsString, categories: filterObject.categoriesAsString, onSucces: { (podcasts) in
+        API.sharedInstance.getPosts(type: type, createdAtBefore: filterObject.lastDate, tags: filterObject.tagsAsString, categories: filterObject.categoriesAsString, onSucces: { (podcasts) in
             self.loading = false
             guard podcasts != self.lastReturnedDataArray else {
                 onFailure(.ReturnedDataEqualsLastData)

@@ -13,6 +13,7 @@ public struct PodcastViewModel: Codable {
     var podcastTitle: String
     let encodedPodcastDescription: String
     let summary: String?
+    let markdown: String?
     let uploadDateiso8601: String
     let postLinkURL: URL?
     let postAuthor: String
@@ -36,6 +37,7 @@ public struct PodcastViewModel: Codable {
         self.podcastTitle = podcast.title
         self.encodedPodcastDescription = podcast.description
         self.summary = nil
+        self.markdown = podcast.markdown
         self.uploadDateiso8601 = podcast.date
         self.postLinkURL = URL(string: podcast.link)
         self.postAuthor = podcast.author
@@ -60,6 +62,7 @@ public struct PodcastViewModel: Codable {
         self.podcastTitle = ""
         self.encodedPodcastDescription = ""
         self.summary = nil
+        self.markdown = nil
         self.score = 0
         self.totalFavorites = 0
         self.postAuthor = ""
