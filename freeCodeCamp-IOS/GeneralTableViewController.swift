@@ -13,8 +13,6 @@ private let reuseIdentifier = "Cell"
 class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     typealias tableViewCell = T
     
-    var headers = [PodcastCategoryIds.javascript.readable, PodcastCategoryIds.apple.readable, PodcastCategoryIds.programming.readable]
-    
     var type: PodcastTypes
     var tabTitle: String
     var tags: [Int]
@@ -79,8 +77,7 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        guard self.type == .recommended else { return 1 }
-        return 3
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,11 +117,6 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
             vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard self.type == .recommended else { return "" }
-        return headers[section]
     }
 }
 
@@ -310,3 +302,4 @@ extension TopTableViewController {
         }
     }
 }
+
