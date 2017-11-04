@@ -13,11 +13,13 @@ private let reuseIdentifier = "Cell"
 class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     typealias tableViewCell = T
     
+    var headers = [PodcastCategoryIds.javascript.readable, PodcastCategoryIds.apple.readable, PodcastCategoryIds.programming.readable]
+    
     var type: PodcastTypes
     var tabTitle: String
     var tags: [Int]
     var categories: [String]
-
+    
     // Paging Properties
     var loading = false
     let pageSize = 10
@@ -63,23 +65,24 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tableView.register(tableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         
         self.tableView.rowHeight = UIView.getValueScaledByScreenHeightFor(baseValue: 144)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        guard self.type == .recommended else { return 1 }
+        return 3
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if podcastViewModelController.viewModelsCount > 0 {
@@ -117,6 +120,11 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
             vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard self.type == .recommended else { return "" }
+        return headers[section]
     }
 }
 
@@ -302,4 +310,3 @@ extension TopTableViewController {
         }
     }
 }
-
