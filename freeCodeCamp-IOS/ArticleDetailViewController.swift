@@ -9,10 +9,15 @@
 import UIKit
 import Down
 
-class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
+protocol ArticleDetailViewControllerDelegate {
+    func modelDidChange(viewModel: PodcastViewModel)
+}
+
+class ArticleDetailViewController: UIViewController {
+    var delegate: ArticleDetailViewControllerDelegate?
 
     var model = PodcastViewModel()
-    var webView: UIWebView!
+    var downView: DownView!
     
     lazy var scrollView: UIScrollView = {
         return UIScrollView(frame: self.view.frame)
@@ -24,10 +29,11 @@ class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
         self.view.addSubview(scrollView)
         
         let headerView = HeaderView(width: 375, height: 200)
-        headerView.setupHeader(model: model)
+        headerView.setupHeader(viewModel: self.model)
+        headerView.delegate = self
         self.scrollView.addSubview(headerView)
         
-        let downView = try? DownView(frame: CGRect(x: 0, y: 200, width: self.view.width, height: self.view.height), markdownString: model.markdown!) {}
+        downView = try? DownView(frame: CGRect(x: 0, y: headerView.bottomLeftPoint().y, width: self.view.width, height: self.view.height), markdownString: model.markdown!) {}
         self.scrollView.insertSubview(downView!, belowSubview: headerView)
         downView!.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
@@ -36,8 +42,10 @@ class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        self.webView.height = self.webView.scrollView.contentSize.height + 60
+}
+
+extension ArticleDetailViewController: HeaderViewDelegate {
+    func modelDidChange(viewModel: PodcastViewModel) {
+        self.delegate?.modelDidChange(viewModel: viewModel)
     }
 }

@@ -177,7 +177,7 @@ class GeneralCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         log.error("SDF")
         if let viewModel = podcastViewModelController.viewModel(at: indexPath.row) {
-            let vc = PodcastDetailViewController()
+            let vc = ArticleDetailViewController()
             vc.model = viewModel
             self.navigationController?.pushViewController(vc, animated: true)
         }

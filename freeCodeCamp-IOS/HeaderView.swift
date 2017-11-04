@@ -9,8 +9,14 @@
 import UIKit
 import SwiftIcons
 
+protocol HeaderViewDelegate {
+    func modelDidChange(viewModel: PodcastViewModel)
+}
+
 class HeaderView: UIView {
-    var model = PodcastViewModel()
+    var delegate: HeaderViewDelegate?
+    
+    var model: PodcastViewModel!
     
     let titleLabel = UILabel()
     let dateLabel = UILabel()
@@ -23,7 +29,7 @@ class HeaderView: UIView {
     let upVoteButton = UIButton()
     let downVoteButton = UIButton()
     let scoreLabel = UILabel()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame);
         
@@ -117,8 +123,8 @@ class HeaderView: UIView {
         upVoteButton.addTarget(self, action: #selector(self.upvoteButtonPressed), for: .touchUpInside)
     }
     
-    func setupHeader(model: PodcastViewModel) {
-        self.model = model
+    func setupHeader(viewModel: PodcastViewModel) {
+        self.model = viewModel
         self.titleLabel.text = model.podcastTitle
         self.dateLabel.text = model.getLastUpdatedAsDate()?.dateString() ?? ""
         self.scoreLabel.text = model.score.string
@@ -178,22 +184,29 @@ extension HeaderView {
         })
     }
     
+    //@TODO: Fix subtracting 2 or adding 2 if already upvoted or downvoted
     func addScore(active: Bool) {
         self.setUpvoteTo(active)
         guard active != false else {
             self.setScoreTo(self.model.score - 1)
+            self.delegate?.modelDidChange(viewModel: self.model)
             return
         }
         self.setScoreTo(self.model.score + 1)
+        
+        self.delegate?.modelDidChange(viewModel: self.model)
     }
     
     func subtractScore(active: Bool) {
         self.setDownvoteTo(active)
         guard active != false else {
             self.setScoreTo(self.model.score + 1)
+            self.delegate?.modelDidChange(viewModel: self.model)
             return
         }
         self.setScoreTo(self.model.score - 1)
+        
+        self.delegate?.modelDidChange(viewModel: self.model)
     }
     
     func setUpvoteTo(_ bool: Bool) {
