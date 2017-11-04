@@ -13,11 +13,11 @@ protocol ArticleDetailViewControllerDelegate {
     func modelDidChange(viewModel: PodcastViewModel)
 }
 
-class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
+class ArticleDetailViewController: UIViewController {
     var delegate: ArticleDetailViewControllerDelegate?
 
     var model = PodcastViewModel()
-    var webView: UIWebView!
+    var downView: DownView!
     
     lazy var scrollView: UIScrollView = {
         return UIScrollView(frame: self.view.frame)
@@ -33,7 +33,7 @@ class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
         headerView.delegate = self
         self.scrollView.addSubview(headerView)
         
-        let downView = try? DownView(frame: CGRect(x: 0, y: 200, width: self.view.width, height: self.view.height), markdownString: model.markdown!) {}
+        downView = try? DownView(frame: CGRect(x: 0, y: headerView.bottomLeftPoint().y, width: self.view.width, height: self.view.height), markdownString: model.markdown!) {}
         self.scrollView.insertSubview(downView!, belowSubview: headerView)
         downView!.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
@@ -41,10 +41,6 @@ class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        self.webView.height = self.webView.scrollView.contentSize.height + 60
     }
 }
 
