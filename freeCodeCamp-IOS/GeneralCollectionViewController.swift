@@ -175,6 +175,7 @@ class GeneralCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        log.error("SDF")
         if let viewModel = podcastViewModelController.viewModel(at: indexPath.row) {
             let vc = PodcastDetailViewController()
             vc.model = viewModel

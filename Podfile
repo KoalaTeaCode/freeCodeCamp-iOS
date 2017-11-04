@@ -11,6 +11,7 @@ target 'freeCodeCamp-IOS' do
   pod 'BonMot'
   pod 'Crashlytics'
   pod 'Disk'
+  pod 'Down'
   pod 'Eureka'
   pod 'Fabric'
   pod 'IQKeyboardManagerSwift'

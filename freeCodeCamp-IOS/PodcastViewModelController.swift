@@ -52,6 +52,7 @@ public class PodcastViewModelController {
             let newViewModels: [ViewModel?] = podcasts.map { model in
                 return ViewModel(podcast: model)
             }
+            
             guard !self.viewModels.isEmpty else {
                 self.viewModels.append(contentsOf: newViewModels)
                 onSucces()

@@ -106,6 +106,7 @@ public struct Podcast: Codable {
     let title: String
     let description: String
     let summary: String?
+    let markdown: String?
     let date: String
     let link: String
     let guid: String
