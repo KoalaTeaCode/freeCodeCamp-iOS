@@ -114,8 +114,15 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
         if let viewModel = podcastViewModelController.viewModel(at: indexPath.row) {
             let vc = ArticleDetailViewController()
             vc.model = viewModel
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+}
+
+extension GeneralTableViewController: ArticleDetailViewControllerDelegate {
+    func modelDidChange(viewModel: PodcastViewModel) {
+        self.podcastViewModelController.update(with: viewModel)
     }
 }
 
@@ -256,8 +263,15 @@ class TopTableViewController: UITableViewController {
         if let viewModel = podcastViewModelController.viewModel(at: indexPath.row) {
             let vc = ArticleDetailViewController()
             vc.model = viewModel
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+}
+
+extension TopTableViewController: ArticleDetailViewControllerDelegate {
+    func modelDidChange(viewModel: PodcastViewModel) {
+        self.podcastViewModelController.update(with: viewModel)
     }
 }
 

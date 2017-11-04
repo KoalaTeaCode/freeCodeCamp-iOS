@@ -9,7 +9,12 @@
 import UIKit
 import Down
 
+protocol ArticleDetailViewControllerDelegate {
+    func modelDidChange(viewModel: PodcastViewModel)
+}
+
 class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
+    var delegate: ArticleDetailViewControllerDelegate?
 
     var model = PodcastViewModel()
     var webView: UIWebView!
@@ -24,7 +29,8 @@ class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
         self.view.addSubview(scrollView)
         
         let headerView = HeaderView(width: 375, height: 200)
-        headerView.setupHeader(model: model)
+        headerView.setupHeader(viewModel: self.model)
+        headerView.delegate = self
         self.scrollView.addSubview(headerView)
         
         let downView = try? DownView(frame: CGRect(x: 0, y: 200, width: self.view.width, height: self.view.height), markdownString: model.markdown!) {}
@@ -39,5 +45,11 @@ class ArticleDetailViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         self.webView.height = self.webView.scrollView.contentSize.height + 60
+    }
+}
+
+extension ArticleDetailViewController: HeaderViewDelegate {
+    func modelDidChange(viewModel: PodcastViewModel) {
+        self.delegate?.modelDidChange(viewModel: viewModel)
     }
 }
