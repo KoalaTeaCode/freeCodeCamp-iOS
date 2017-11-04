@@ -1,0 +1,941 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01BB1D6D1F29999E004A912E /* PodcastPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BB1D6C1F29999E004A912E /* PodcastPageViewController.swift */; };
+		161B11161FA91E3D00E93286 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161B11151FA91E3D00E93286 /* TableViewController.swift */; };
+		161F3DE61F61F73D00A8F825 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161F3DE51F61F73D00A8F825 /* SearchTableViewController.swift */; };
+		161F3DEA1F62703100A8F825 /* PodcastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161F3DE91F62703100A8F825 /* PodcastTableViewCell.swift */; };
+		16307FCA1F8FDD02001783CB /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16307FC91F8FDD02001783CB /* Podcast.swift */; };
+		16307FCC1F8FEE3A001783CB /* PodcastViewModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16307FCB1F8FEE3A001783CB /* PodcastViewModelController.swift */; };
+		1649A78A1F204EC6005C4A6E /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1649A7891F204EC6005C4A6E /* ContainerViewController.swift */; };
+		164C71051F021AC8003803BC /* CustomTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C71041F021AC8003803BC /* CustomTabViewController.swift */; };
+		164FE9DC1F02DAB5009419CA /* PodcastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FE9DB1F02DAB5009419CA /* PodcastCollectionViewCell.swift */; };
+		164FE9E11F02EE67009419CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FE9E01F02EE67009419CA /* LoginViewController.swift */; };
+		164FE9E51F02EE83009419CA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FE9E41F02EE83009419CA /* API.swift */; };
+		164FE9E71F02F02F009419CA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FE9E61F02F02F009419CA /* UserModel.swift */; };
+		164FE9E91F02F049009419CA /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FE9E81F02F049009419CA /* Stylesheet.swift */; };
+		164FE9EB1F02F340009419CA /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FE9EA1F02F340009419CA /* Helpers.swift */; };
+		164FE9ED1F02F7E2009419CA /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FE9EC1F02F7E2009419CA /* UIButtonExtension.swift */; };
+		164FE9EF1F03065C009419CA /* NavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164FE9EE1F03065C009419CA /* NavigationControllerExtension.swift */; };
+		165484551F902D3F005AEA23 /* GeneralCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165484541F902D3F005AEA23 /* GeneralCollectionViewController.swift */; };
+		165E1D8D1FAB70650042744A /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E1D8C1FAB70650042744A /* GeneralTableViewController.swift */; };
+		165E1D8F1FABC6DE0042744A /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E1D8E1FABC6DE0042744A /* ArticleDetailViewController.swift */; };
+		166036211F266FF300A22B7B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166036201F266FF300A22B7B /* Notifications.swift */; };
+		167AFAB71F043F1100A1332F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AFAB61F043F1100A1332F /* HeaderView.swift */; };
+		1686FC011F009EC00088A6C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1686FC001F009EC00088A6C1 /* AppDelegate.swift */; };
+		1686FC061F009EC00088A6C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1686FC041F009EC00088A6C1 /* Main.storyboard */; };
+		1686FC081F009EC00088A6C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1686FC071F009EC00088A6C1 /* Assets.xcassets */; };
+		1686FC0B1F009EC00088A6C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1686FC091F009EC00088A6C1 /* LaunchScreen.storyboard */; };
+		1686FC161F009EC00088A6C1 /* freeCodeCamp_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1686FC151F009EC00088A6C1 /* freeCodeCamp_IOSTests.swift */; };
+		169806A61F8EF3970075D8AD /* L10nEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169806A51F8EF08F0075D8AD /* L10nEnum.swift */; };
+		16AD3E0A1F9B138D0084C545 /* PodcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AD3E091F9B138D0084C545 /* PodcastViewModel.swift */; };
+		16AD3E0C1F9B13EE0084C545 /* FilterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AD3E0B1F9B13EE0084C545 /* FilterObject.swift */; };
+		16AD3E0E1F9B14130084C545 /* PodcastDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AD3E0D1F9B14130084C545 /* PodcastDataSource.swift */; };
+		16B147B11F16BF9C00433A42 /* AudioViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B147B01F16BF9C00433A42 /* AudioViewManager.swift */; };
+		16CE698F1F98029E0057BAC3 /* PodcastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CE698E1F98029E0057BAC3 /* PodcastDetailViewController.swift */; };
+		16CE69911F9807CF0057BAC3 /* PodcastDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CE69901F9807CF0057BAC3 /* PodcastDescriptionView.swift */; };
+		16D67C4A1F33AC620065E838 /* AnswersTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D67C491F33AC620065E838 /* AnswersTracker.swift */; };
+		16D6F5901FA372AD00139DE9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D6F58F1FA372AD00139DE9 /* CollectionViewController.swift */; };
+		16D766BA1F06B4850066C143 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D766B91F06B4850066C143 /* AudioView.swift */; };
+		16F3A1BA1F90918D00364709 /* PodcastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F3A1B91F90918D00364709 /* PodcastRepository.swift */; };
+		16FA84031F8D323700A45D9B /* SkeletonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FA84021F8D323700A45D9B /* SkeletonCollectionView.swift */; };
+		1E44AF031F87B08D00221B22 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E44AF051F87B08D00221B22 /* Localizable.strings */; };
+		238E99F4E37C7365658113B8 /* Pods_SEDaily_IOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0C9F051C6C2F8638D2ABF8 /* Pods_SEDaily_IOSTests.framework */; };
+		4B2FE37A31C2B925BACB833F /* Pods_freeCodeCamp_IOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56D4490A099B48FABF95804 /* Pods_freeCodeCamp_IOSTests.framework */; };
+		FC4A2D4596620CE0EB96AF2F /* Pods_freeCodeCamp_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49754D7815A7A49575AE0083 /* Pods_freeCodeCamp_IOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1686FC121F009EC00088A6C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1686FBF51F009EC00088A6C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1686FBFC1F009EC00088A6C1;
+			remoteInfo = "SEDaily-IOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01BB1D6C1F29999E004A912E /* PodcastPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastPageViewController.swift; sourceTree = "<group>"; };
+		161B11151FA91E3D00E93286 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		161F3DE51F61F73D00A8F825 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		161F3DE91F62703100A8F825 /* PodcastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastTableViewCell.swift; sourceTree = "<group>"; };
+		16307FC91F8FDD02001783CB /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
+		16307FCB1F8FEE3A001783CB /* PodcastViewModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewModelController.swift; sourceTree = "<group>"; };
+		1649A7891F204EC6005C4A6E /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		164C71041F021AC8003803BC /* CustomTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabViewController.swift; sourceTree = "<group>"; };
+		164FE9DB1F02DAB5009419CA /* PodcastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastCollectionViewCell.swift; sourceTree = "<group>"; };
+		164FE9E01F02EE67009419CA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		164FE9E41F02EE83009419CA /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		164FE9E61F02F02F009419CA /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		164FE9E81F02F049009419CA /* Stylesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
+		164FE9EA1F02F340009419CA /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		164FE9EC1F02F7E2009419CA /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		164FE9EE1F03065C009419CA /* NavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerExtension.swift; sourceTree = "<group>"; };
+		165484541F902D3F005AEA23 /* GeneralCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCollectionViewController.swift; sourceTree = "<group>"; };
+		165E1D8C1FAB70650042744A /* GeneralTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewController.swift; sourceTree = "<group>"; };
+		165E1D8E1FABC6DE0042744A /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
+		166036201F266FF300A22B7B /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		167AFAB61F043F1100A1332F /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		1686FBFD1F009EC00088A6C1 /* freeCodeCamp-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "freeCodeCamp-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1686FC001F009EC00088A6C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1686FC051F009EC00088A6C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1686FC071F009EC00088A6C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1686FC0A1F009EC00088A6C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1686FC0C1F009EC00088A6C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1686FC111F009EC00088A6C1 /* freeCodeCamp-IOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "freeCodeCamp-IOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1686FC151F009EC00088A6C1 /* freeCodeCamp_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = freeCodeCamp_IOSTests.swift; sourceTree = "<group>"; };
+		1686FC171F009EC00088A6C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		169806A51F8EF08F0075D8AD /* L10nEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10nEnum.swift; sourceTree = "<group>"; };
+		16AD3E091F9B138D0084C545 /* PodcastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewModel.swift; sourceTree = "<group>"; };
+		16AD3E0B1F9B13EE0084C545 /* FilterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterObject.swift; sourceTree = "<group>"; };
+		16AD3E0D1F9B14130084C545 /* PodcastDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDataSource.swift; sourceTree = "<group>"; };
+		16B147B01F16BF9C00433A42 /* AudioViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioViewManager.swift; sourceTree = "<group>"; };
+		16CE698E1F98029E0057BAC3 /* PodcastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailViewController.swift; sourceTree = "<group>"; };
+		16CE69901F9807CF0057BAC3 /* PodcastDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDescriptionView.swift; sourceTree = "<group>"; };
+		16D67C491F33AC620065E838 /* AnswersTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersTracker.swift; sourceTree = "<group>"; };
+		16D6F58F1FA372AD00139DE9 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		16D766B91F06B4850066C143 /* AudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
+		16F3A1B91F90918D00364709 /* PodcastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastRepository.swift; sourceTree = "<group>"; };
+		16FA84021F8D323700A45D9B /* SkeletonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCollectionView.swift; sourceTree = "<group>"; };
+		1E44AEFF1F87ACF500221B22 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1E44AF001F87ACF500221B22 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		1E44AF061F87B09100221B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1E44AF081F87B0A700221B22 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		49754D7815A7A49575AE0083 /* Pods_freeCodeCamp_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_freeCodeCamp_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F099FEDCDFC3C6D061C6A7D /* Pods-freeCodeCamp-IOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-freeCodeCamp-IOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-freeCodeCamp-IOSTests/Pods-freeCodeCamp-IOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		675FBEB71FD81FBA8767227A /* Pods-SEDaily-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SEDaily-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SEDaily-IOS/Pods-SEDaily-IOS.release.xcconfig"; sourceTree = "<group>"; };
+		709591F950916EE90F305225 /* Pods-freeCodeCamp-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-freeCodeCamp-IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-freeCodeCamp-IOS/Pods-freeCodeCamp-IOS.debug.xcconfig"; sourceTree = "<group>"; };
+		8DFDB681605FCA81E5D6C920 /* Pods-freeCodeCamp-IOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-freeCodeCamp-IOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-freeCodeCamp-IOSTests/Pods-freeCodeCamp-IOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		995F64385352A79BA0DF7DEB /* Pods-SEDaily-IOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SEDaily-IOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SEDaily-IOSTests/Pods-SEDaily-IOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9FDA28C254F62BB468401B75 /* Pods-SEDaily-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SEDaily-IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SEDaily-IOS/Pods-SEDaily-IOS.debug.xcconfig"; sourceTree = "<group>"; };
+		A2EFA433B346D70E958FFC73 /* Pods-SEDaily-IOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SEDaily-IOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SEDaily-IOSTests/Pods-SEDaily-IOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		A3651E5B02B83E392546E167 /* Pods_SEDaily_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SEDaily_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABE7CBD40EF8895B72A81F22 /* Pods-freeCodeCamp-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-freeCodeCamp-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-freeCodeCamp-IOS/Pods-freeCodeCamp-IOS.release.xcconfig"; sourceTree = "<group>"; };
+		DF0C9F051C6C2F8638D2ABF8 /* Pods_SEDaily_IOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SEDaily_IOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E56D4490A099B48FABF95804 /* Pods_freeCodeCamp_IOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_freeCodeCamp_IOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1686FBFA1F009EC00088A6C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC4A2D4596620CE0EB96AF2F /* Pods_freeCodeCamp_IOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1686FC0E1F009EC00088A6C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				238E99F4E37C7365658113B8 /* Pods_SEDaily_IOSTests.framework in Frameworks */,
+				4B2FE37A31C2B925BACB833F /* Pods_freeCodeCamp_IOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16307FC81F8FDCE4001783CB /* PodcastModels */ = {
+			isa = PBXGroup;
+			children = (
+				16AD3E0B1F9B13EE0084C545 /* FilterObject.swift */,
+				16307FC91F8FDD02001783CB /* Podcast.swift */,
+				16AD3E0D1F9B14130084C545 /* PodcastDataSource.swift */,
+				16F3A1B91F90918D00364709 /* PodcastRepository.swift */,
+				16AD3E091F9B138D0084C545 /* PodcastViewModel.swift */,
+				16307FCB1F8FEE3A001783CB /* PodcastViewModelController.swift */,
+			);
+			name = PodcastModels;
+			sourceTree = "<group>";
+		};
+		164FE9DF1F02EE4E009419CA /* Podcasts */ = {
+			isa = PBXGroup;
+			children = (
+				165484541F902D3F005AEA23 /* GeneralCollectionViewController.swift */,
+				16FA84021F8D323700A45D9B /* SkeletonCollectionView.swift */,
+				16307FC81F8FDCE4001783CB /* PodcastModels */,
+				16AD3E001F9A975F0084C545 /* PodcastDetail */,
+				165E1D8C1FAB70650042744A /* GeneralTableViewController.swift */,
+				165E1D8E1FABC6DE0042744A /* ArticleDetailViewController.swift */,
+			);
+			name = Podcasts;
+			sourceTree = "<group>";
+		};
+		164FE9E21F02EE71009419CA /* CommonModels */ = {
+			isa = PBXGroup;
+			children = (
+				164FE9E61F02F02F009419CA /* UserModel.swift */,
+			);
+			name = CommonModels;
+			sourceTree = "<group>";
+		};
+		164FE9E31F02EE77009419CA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				164FE9E81F02F049009419CA /* Stylesheet.swift */,
+				164FE9EA1F02F340009419CA /* Helpers.swift */,
+				164FE9EC1F02F7E2009419CA /* UIButtonExtension.swift */,
+				164FE9EE1F03065C009419CA /* NavigationControllerExtension.swift */,
+				166036201F266FF300A22B7B /* Notifications.swift */,
+				16D67C491F33AC620065E838 /* AnswersTracker.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		1686FBF41F009EC00088A6C1 = {
+			isa = PBXGroup;
+			children = (
+				1686FBFF1F009EC00088A6C1 /* freeCodeCamp-IOS */,
+				1686FC141F009EC00088A6C1 /* freeCodeCamp-IOSTests */,
+				1686FBFE1F009EC00088A6C1 /* Products */,
+				4E74333675FE5899EC260076 /* Pods */,
+				E6ABCD02C9CBA1E6E09EB4DE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1686FBFE1F009EC00088A6C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1686FBFD1F009EC00088A6C1 /* freeCodeCamp-IOS.app */,
+				1686FC111F009EC00088A6C1 /* freeCodeCamp-IOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1686FBFF1F009EC00088A6C1 /* freeCodeCamp-IOS */ = {
+			isa = PBXGroup;
+			children = (
+				169806A41F8EF08F0075D8AD /* Constants */,
+				1686FC0C1F009EC00088A6C1 /* Info.plist */,
+				164FE9E41F02EE83009419CA /* API.swift */,
+				1686FC001F009EC00088A6C1 /* AppDelegate.swift */,
+				1E44AF051F87B08D00221B22 /* Localizable.strings */,
+				1686FC071F009EC00088A6C1 /* Assets.xcassets */,
+				16AD3E011F9B06480084C545 /* Audio */,
+				16AD3E071F9B07520084C545 /* Auth */,
+				16AD3E061F9B07320084C545 /* CommonVCs */,
+				16AD3E051F9B07160084C545 /* CommonCells */,
+				164FE9E21F02EE71009419CA /* CommonModels */,
+				16AD3E081F9B07A70084C545 /* Core */,
+				164FE9E31F02EE77009419CA /* Helpers */,
+				164FE9DF1F02EE4E009419CA /* Podcasts */,
+				16AD3E031F9B06950084C545 /* Search */,
+			);
+			path = "freeCodeCamp-IOS";
+			sourceTree = "<group>";
+		};
+		1686FC141F009EC00088A6C1 /* freeCodeCamp-IOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				1686FC151F009EC00088A6C1 /* freeCodeCamp_IOSTests.swift */,
+				1686FC171F009EC00088A6C1 /* Info.plist */,
+			);
+			path = "freeCodeCamp-IOSTests";
+			sourceTree = "<group>";
+		};
+		169806A41F8EF08F0075D8AD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				169806A51F8EF08F0075D8AD /* L10nEnum.swift */,
+			);
+			path = Constants;
+			sourceTree = SOURCE_ROOT;
+		};
+		16AD3E001F9A975F0084C545 /* PodcastDetail */ = {
+			isa = PBXGroup;
+			children = (
+				167AFAB61F043F1100A1332F /* HeaderView.swift */,
+				16CE69901F9807CF0057BAC3 /* PodcastDescriptionView.swift */,
+				16CE698E1F98029E0057BAC3 /* PodcastDetailViewController.swift */,
+			);
+			name = PodcastDetail;
+			sourceTree = "<group>";
+		};
+		16AD3E011F9B06480084C545 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				16B147B01F16BF9C00433A42 /* AudioViewManager.swift */,
+				16D766B91F06B4850066C143 /* AudioView.swift */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		16AD3E031F9B06950084C545 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				161F3DE51F61F73D00A8F825 /* SearchTableViewController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		16AD3E051F9B07160084C545 /* CommonCells */ = {
+			isa = PBXGroup;
+			children = (
+				161F3DE91F62703100A8F825 /* PodcastTableViewCell.swift */,
+				164FE9DB1F02DAB5009419CA /* PodcastCollectionViewCell.swift */,
+				16D6F58F1FA372AD00139DE9 /* CollectionViewController.swift */,
+				161B11151FA91E3D00E93286 /* TableViewController.swift */,
+			);
+			name = CommonCells;
+			sourceTree = "<group>";
+		};
+		16AD3E061F9B07320084C545 /* CommonVCs */ = {
+			isa = PBXGroup;
+			children = (
+				164C71041F021AC8003803BC /* CustomTabViewController.swift */,
+				01BB1D6C1F29999E004A912E /* PodcastPageViewController.swift */,
+				1649A7891F204EC6005C4A6E /* ContainerViewController.swift */,
+			);
+			name = CommonVCs;
+			sourceTree = "<group>";
+		};
+		16AD3E071F9B07520084C545 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				164FE9E01F02EE67009419CA /* LoginViewController.swift */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		16AD3E081F9B07A70084C545 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1686FC091F009EC00088A6C1 /* LaunchScreen.storyboard */,
+				1686FC041F009EC00088A6C1 /* Main.storyboard */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		4E74333675FE5899EC260076 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FDA28C254F62BB468401B75 /* Pods-SEDaily-IOS.debug.xcconfig */,
+				675FBEB71FD81FBA8767227A /* Pods-SEDaily-IOS.release.xcconfig */,
+				995F64385352A79BA0DF7DEB /* Pods-SEDaily-IOSTests.debug.xcconfig */,
+				A2EFA433B346D70E958FFC73 /* Pods-SEDaily-IOSTests.release.xcconfig */,
+				709591F950916EE90F305225 /* Pods-freeCodeCamp-IOS.debug.xcconfig */,
+				ABE7CBD40EF8895B72A81F22 /* Pods-freeCodeCamp-IOS.release.xcconfig */,
+				5F099FEDCDFC3C6D061C6A7D /* Pods-freeCodeCamp-IOSTests.debug.xcconfig */,
+				8DFDB681605FCA81E5D6C920 /* Pods-freeCodeCamp-IOSTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E6ABCD02C9CBA1E6E09EB4DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3651E5B02B83E392546E167 /* Pods_SEDaily_IOS.framework */,
+				DF0C9F051C6C2F8638D2ABF8 /* Pods_SEDaily_IOSTests.framework */,
+				49754D7815A7A49575AE0083 /* Pods_freeCodeCamp_IOS.framework */,
+				E56D4490A099B48FABF95804 /* Pods_freeCodeCamp_IOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1686FBFC1F009EC00088A6C1 /* freeCodeCamp-IOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1686FC1A1F009EC00088A6C1 /* Build configuration list for PBXNativeTarget "freeCodeCamp-IOS" */;
+			buildPhases = (
+				6A12E8C003C75BEEE01B2AA0 /* [CP] Check Pods Manifest.lock */,
+				1686FBF91F009EC00088A6C1 /* Sources */,
+				1686FBFA1F009EC00088A6C1 /* Frameworks */,
+				1686FBFB1F009EC00088A6C1 /* Resources */,
+				AE5F616C12D0339AD2CE40F0 /* [CP] Embed Pods Frameworks */,
+				4B6DBB81C87D23ABC98202EB /* [CP] Copy Pods Resources */,
+				16D67C4B1F33AD1D0065E838 /* ShellScript */,
+				169806A21F8EED850075D8AD /* Swiftgen Localize Strings Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "freeCodeCamp-IOS";
+			productName = "SEDaily-IOS";
+			productReference = 1686FBFD1F009EC00088A6C1 /* freeCodeCamp-IOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1686FC101F009EC00088A6C1 /* freeCodeCamp-IOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1686FC1D1F009EC00088A6C1 /* Build configuration list for PBXNativeTarget "freeCodeCamp-IOSTests" */;
+			buildPhases = (
+				0AC6AC0CAA2207AE56408B2B /* [CP] Check Pods Manifest.lock */,
+				1686FC0D1F009EC00088A6C1 /* Sources */,
+				1686FC0E1F009EC00088A6C1 /* Frameworks */,
+				1686FC0F1F009EC00088A6C1 /* Resources */,
+				43BA1A9ED42DE22C48E64092 /* [CP] Embed Pods Frameworks */,
+				8836A870BF4FA6C98035B298 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1686FC131F009EC00088A6C1 /* PBXTargetDependency */,
+			);
+			name = "freeCodeCamp-IOSTests";
+			productName = "SEDaily-IOSTests";
+			productReference = 1686FC111F009EC00088A6C1 /* freeCodeCamp-IOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1686FBF51F009EC00088A6C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Koala Tea";
+				TargetAttributes = {
+					1686FBFC1F009EC00088A6C1 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 6TY8WC8WPP;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					1686FC101F009EC00088A6C1 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 6MS9QWALYV;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1686FBFC1F009EC00088A6C1;
+					};
+				};
+			};
+			buildConfigurationList = 1686FBF81F009EC00088A6C1 /* Build configuration list for PBXProject "freeCodeCamp-IOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				fr,
+			);
+			mainGroup = 1686FBF41F009EC00088A6C1;
+			productRefGroup = 1686FBFE1F009EC00088A6C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1686FBFC1F009EC00088A6C1 /* freeCodeCamp-IOS */,
+				1686FC101F009EC00088A6C1 /* freeCodeCamp-IOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1686FBFB1F009EC00088A6C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1686FC0B1F009EC00088A6C1 /* LaunchScreen.storyboard in Resources */,
+				1E44AF031F87B08D00221B22 /* Localizable.strings in Resources */,
+				1686FC081F009EC00088A6C1 /* Assets.xcassets in Resources */,
+				1686FC061F009EC00088A6C1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1686FC0F1F009EC00088A6C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0AC6AC0CAA2207AE56408B2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-freeCodeCamp-IOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		169806A21F8EED850075D8AD /* Swiftgen Localize Strings Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftgen Localize Strings Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"$PODS_ROOT\"/SwiftGen/bin/swiftgen >/dev/null; then\nset -e\n\"$PODS_ROOT\"/SwiftGen/bin/swiftgen strings -t structured-swift3 \"$PROJECT_DIR/freeCodeCamp-IOS/Base.lproj/Localizable.strings\" --output \"$PROJECT_DIR/Constants/L10nEnum.swift\"\nelse\necho \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi";
+		};
+		16D67C4B1F33AD1D0065E838 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run f0ec5c4da42e81dc990c190bf79ca81fd9fdcf7d 8f1f2cea85347d8df665cfe1460a1391be0d1c99e81197b80ef43259ec294b0d";
+		};
+		43BA1A9ED42DE22C48E64092 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-freeCodeCamp-IOSTests/Pods-freeCodeCamp-IOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B6DBB81C87D23ABC98202EB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-freeCodeCamp-IOS/Pods-freeCodeCamp-IOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A12E8C003C75BEEE01B2AA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-freeCodeCamp-IOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8836A870BF4FA6C98035B298 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-freeCodeCamp-IOSTests/Pods-freeCodeCamp-IOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE5F616C12D0339AD2CE40F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-freeCodeCamp-IOS/Pods-freeCodeCamp-IOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework",
+				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/KTResponsiveUI/KTResponsiveUI.framework",
+				"${BUILT_PRODUCTS_DIR}/KoalaTeaFlowLayout/KoalaTeaFlowLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/KoalaTeaPlayer/KoalaTeaPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
+				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/Skeleton/Skeleton.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
+				"${BUILT_PRODUCTS_DIR}/UIFontComplete/UIFontComplete.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BonMot.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KTResponsiveUI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KoalaTeaFlowLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KoalaTeaPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Skeleton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIFontComplete.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-freeCodeCamp-IOS/Pods-freeCodeCamp-IOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1686FBF91F009EC00088A6C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				164FE9E11F02EE67009419CA /* LoginViewController.swift in Sources */,
+				1649A78A1F204EC6005C4A6E /* ContainerViewController.swift in Sources */,
+				164FE9EF1F03065C009419CA /* NavigationControllerExtension.swift in Sources */,
+				165484551F902D3F005AEA23 /* GeneralCollectionViewController.swift in Sources */,
+				165E1D8F1FABC6DE0042744A /* ArticleDetailViewController.swift in Sources */,
+				161F3DE61F61F73D00A8F825 /* SearchTableViewController.swift in Sources */,
+				167AFAB71F043F1100A1332F /* HeaderView.swift in Sources */,
+				16D67C4A1F33AC620065E838 /* AnswersTracker.swift in Sources */,
+				164FE9E51F02EE83009419CA /* API.swift in Sources */,
+				164FE9E91F02F049009419CA /* Stylesheet.swift in Sources */,
+				16CE698F1F98029E0057BAC3 /* PodcastDetailViewController.swift in Sources */,
+				16AD3E0C1F9B13EE0084C545 /* FilterObject.swift in Sources */,
+				16AD3E0A1F9B138D0084C545 /* PodcastViewModel.swift in Sources */,
+				16D6F5901FA372AD00139DE9 /* CollectionViewController.swift in Sources */,
+				16B147B11F16BF9C00433A42 /* AudioViewManager.swift in Sources */,
+				164C71051F021AC8003803BC /* CustomTabViewController.swift in Sources */,
+				164FE9DC1F02DAB5009419CA /* PodcastCollectionViewCell.swift in Sources */,
+				16D766BA1F06B4850066C143 /* AudioView.swift in Sources */,
+				164FE9EB1F02F340009419CA /* Helpers.swift in Sources */,
+				16FA84031F8D323700A45D9B /* SkeletonCollectionView.swift in Sources */,
+				166036211F266FF300A22B7B /* Notifications.swift in Sources */,
+				169806A61F8EF3970075D8AD /* L10nEnum.swift in Sources */,
+				01BB1D6D1F29999E004A912E /* PodcastPageViewController.swift in Sources */,
+				16CE69911F9807CF0057BAC3 /* PodcastDescriptionView.swift in Sources */,
+				16307FCC1F8FEE3A001783CB /* PodcastViewModelController.swift in Sources */,
+				16AD3E0E1F9B14130084C545 /* PodcastDataSource.swift in Sources */,
+				164FE9ED1F02F7E2009419CA /* UIButtonExtension.swift in Sources */,
+				16307FCA1F8FDD02001783CB /* Podcast.swift in Sources */,
+				165E1D8D1FAB70650042744A /* GeneralTableViewController.swift in Sources */,
+				161B11161FA91E3D00E93286 /* TableViewController.swift in Sources */,
+				16F3A1BA1F90918D00364709 /* PodcastRepository.swift in Sources */,
+				1686FC011F009EC00088A6C1 /* AppDelegate.swift in Sources */,
+				161F3DEA1F62703100A8F825 /* PodcastTableViewCell.swift in Sources */,
+				164FE9E71F02F02F009419CA /* UserModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1686FC0D1F009EC00088A6C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1686FC161F009EC00088A6C1 /* freeCodeCamp_IOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1686FC131F009EC00088A6C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1686FBFC1F009EC00088A6C1 /* freeCodeCamp-IOS */;
+			targetProxy = 1686FC121F009EC00088A6C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1686FC041F009EC00088A6C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1686FC051F009EC00088A6C1 /* Base */,
+				1E44AF001F87ACF500221B22 /* fr */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1686FC091F009EC00088A6C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1686FC0A1F009EC00088A6C1 /* Base */,
+				1E44AEFF1F87ACF500221B22 /* fr */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1E44AF051F87B08D00221B22 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E44AF061F87B09100221B22 /* Base */,
+				1E44AF081F87B0A700221B22 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1686FC181F009EC00088A6C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[arch=*]" = disable;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1686FC191F009EC00088A6C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1686FC1B1F009EC00088A6C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 709591F950916EE90F305225 /* Pods-freeCodeCamp-IOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 6TY8WC8WPP;
+				INFOPLIST_FILE = "$(SRCROOT)/freeCodeCamp-IOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "koala-tea.freeCodeCamp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		1686FC1C1F009EC00088A6C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABE7CBD40EF8895B72A81F22 /* Pods-freeCodeCamp-IOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 6TY8WC8WPP;
+				INFOPLIST_FILE = "$(SRCROOT)/freeCodeCamp-IOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "koala-tea.freeCodeCamp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		1686FC1E1F009EC00088A6C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F099FEDCDFC3C6D061C6A7D /* Pods-freeCodeCamp-IOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6MS9QWALYV;
+				INFOPLIST_FILE = "SEDaily-IOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "koala-tea.SEDaily-IOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SEDaily-IOS.app/SEDaily-IOS";
+			};
+			name = Debug;
+		};
+		1686FC1F1F009EC00088A6C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DFDB681605FCA81E5D6C920 /* Pods-freeCodeCamp-IOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6MS9QWALYV;
+				INFOPLIST_FILE = "SEDaily-IOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "koala-tea.SEDaily-IOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SEDaily-IOS.app/SEDaily-IOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1686FBF81F009EC00088A6C1 /* Build configuration list for PBXProject "freeCodeCamp-IOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1686FC181F009EC00088A6C1 /* Debug */,
+				1686FC191F009EC00088A6C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1686FC1A1F009EC00088A6C1 /* Build configuration list for PBXNativeTarget "freeCodeCamp-IOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1686FC1B1F009EC00088A6C1 /* Debug */,
+				1686FC1C1F009EC00088A6C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1686FC1D1F009EC00088A6C1 /* Build configuration list for PBXNativeTarget "freeCodeCamp-IOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1686FC1E1F009EC00088A6C1 /* Debug */,
+				1686FC1F1F009EC00088A6C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1686FBF51F009EC00088A6C1 /* Project object */;
+}
