@@ -1,49 +1,48 @@
 PODS:
-  - ActiveLabel (0.7.1)
+  - ActiveLabel (0.8.0)
   - Alamofire (4.5.1)
   - BonMot (5.0)
-  - Crashlytics (3.9.0):
-    - Fabric (~> 1.7.0)
-  - Disk (0.3.1)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Disk (0.3.2)
   - Down (0.4.2)
   - Eureka (4.0.1)
-  - Fabric (1.7.1)
-  - IQKeyboardManagerSwift (5.0.4)
+  - Fabric (1.7.2)
+  - IQKeyboardManagerSwift (5.0.6)
   - KoalaTeaFlowLayout (0.3.1)
   - KoalaTeaPlayer (0.1.7)
-  - KTResponsiveUI (0.2.3):
-    - SwiftIcons
-  - Pageboy (2.0.2)
+  - KTResponsiveUI (0.2.5)
+  - Pageboy (2.0.4)
   - PureLayout (3.0.2)
   - Reusable (4.0.0):
     - Reusable/Storyboard (= 4.0.0)
     - Reusable/View (= 4.0.0)
   - Reusable/Storyboard (4.0.0)
   - Reusable/View (4.0.0)
-  - SDWebImage (4.1.2):
-    - SDWebImage/Core (= 4.1.2)
-  - SDWebImage/Core (4.1.2)
-  - SideMenu (3.1.3)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
+  - SideMenu (3.1.5)
   - Skeleton (0.1.0)
   - SnapKit (4.0.0)
-  - SwifterSwift (4.0.1):
-    - SwifterSwift/AppKit (= 4.0.1)
-    - SwifterSwift/CoreGraphics (= 4.0.1)
-    - SwifterSwift/CoreLocation (= 4.0.1)
-    - SwifterSwift/Foundation (= 4.0.1)
-    - SwifterSwift/SwiftStdlib (= 4.0.1)
-    - SwifterSwift/UIKit (= 4.0.1)
-  - SwifterSwift/AppKit (4.0.1)
-  - SwifterSwift/CoreGraphics (4.0.1)
-  - SwifterSwift/CoreLocation (4.0.1)
-  - SwifterSwift/Foundation (4.0.1)
-  - SwifterSwift/SwiftStdlib (4.0.1)
-  - SwifterSwift/UIKit (4.0.1)
+  - SwifterSwift (4.1.0):
+    - SwifterSwift/AppKit (= 4.1.0)
+    - SwifterSwift/CoreGraphics (= 4.1.0)
+    - SwifterSwift/CoreLocation (= 4.1.0)
+    - SwifterSwift/Foundation (= 4.1.0)
+    - SwifterSwift/SwiftStdlib (= 4.1.0)
+    - SwifterSwift/UIKit (= 4.1.0)
+  - SwifterSwift/AppKit (4.1.0)
+  - SwifterSwift/CoreGraphics (4.1.0)
+  - SwifterSwift/CoreLocation (4.1.0)
+  - SwifterSwift/Foundation (4.1.0)
+  - SwifterSwift/SwiftStdlib (4.1.0)
+  - SwifterSwift/UIKit (4.1.0)
   - SwiftGen (5.2.1)
   - SwiftIcons (1.5.1)
-  - SwiftSoup (1.5.5)
-  - SwiftyBeaver (1.4.2)
-  - SwiftyJSON (3.1.4)
+  - SwiftSoup (1.5.8)
+  - SwiftyBeaver (1.4.3)
+  - SwiftyJSON (4.0.0)
   - Tabman (1.0.5):
     - Pageboy (~> 2.0.0)
     - PureLayout (~> 3.0.0)
@@ -51,30 +50,30 @@ PODS:
 
 DEPENDENCIES:
   - ActiveLabel (from `https://github.com/optonaut/ActiveLabel.swift.git`)
-  - Alamofire
-  - BonMot
-  - Crashlytics
-  - Disk
-  - Down
-  - Eureka
-  - Fabric
-  - IQKeyboardManagerSwift
-  - KoalaTeaFlowLayout
-  - KoalaTeaPlayer
-  - KTResponsiveUI
-  - Reusable
-  - SDWebImage
-  - SideMenu
-  - Skeleton
-  - SnapKit
-  - SwifterSwift
-  - SwiftGen
+  - Alamofire (~> 4.5.1)
+  - BonMot (~> 5.0)
+  - Crashlytics (~> 3.9.3)
+  - Disk (~> 0.3.2)
+  - Down (~> 0.4.2)
+  - Eureka (~> 4.0.1)
+  - Fabric (~> 1.7.2)
+  - IQKeyboardManagerSwift (~> 5.0.6)
+  - KoalaTeaFlowLayout (~> 0.3.1)
+  - KoalaTeaPlayer (~> 0.1.7)
+  - KTResponsiveUI (~> 0.2.5)
+  - Reusable (~> 4.0.0)
+  - SDWebImage (~> 4.2.2)
+  - SideMenu (~> 3.1.5)
+  - Skeleton (~> 0.1.0)
+  - SnapKit (~> 4.0.0)
+  - SwifterSwift (~> 4.1.0)
+  - SwiftGen (~> 5.2.1)
   - SwiftIcons (from `https://github.com/themisterholliday/SwiftIcons.git`, branch `swift-4`)
-  - SwiftSoup
-  - SwiftyBeaver
-  - SwiftyJSON
+  - SwiftSoup (~> 1.5.8)
+  - SwiftyBeaver (~> 1.4.3)
+  - SwiftyJSON (~> 4.0.0)
   - Tabman (from `https://github.com/themisterholliday/Tabman.git`)
-  - UIFontComplete
+  - UIFontComplete (~> 2.0.1)
 
 EXTERNAL SOURCES:
   ActiveLabel:
@@ -87,7 +86,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ActiveLabel:
-    :commit: 3f869d1245e3663379d92a2b918f0af7aec9cf89
+    :commit: 0cf36d33138c0c3795ea08d632e6f26acbfb6551
     :git: https://github.com/optonaut/ActiveLabel.swift.git
   SwiftIcons:
     :commit: 56e9cf1019b01a4a9a2f22a78e84618f4ea094aa
@@ -97,34 +96,34 @@ CHECKOUT OPTIONS:
     :git: https://github.com/themisterholliday/Tabman.git
 
 SPEC CHECKSUMS:
-  ActiveLabel: faa96b5f50507770536a3e48a4cf291ee88fb7db
+  ActiveLabel: c32bb6a81accc4a4c2dcab2d685036fcad537783
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   BonMot: 3ff354572f2aa9295d3760947f7578490cb810be
-  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
-  Disk: 64f0f95a4163314aba6f09f010f17de964762140
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Disk: 52ebc1656944971c73a661458713b3b7497c1b4c
   Down: 92efba7c95a8efdb84b7114e365db4a37f3df76e
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
-  Fabric: c7cfc652f036180a72fe2539646c8a624420419d
-  IQKeyboardManagerSwift: a0592bb636b10a9a1cf75d2b2c61144226226c84
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  IQKeyboardManagerSwift: 02bfbb0dff71c66d0ab77d80d25dfce0c3717735
   KoalaTeaFlowLayout: 219c45709d0873d405b2de1b27080a9c411246b7
   KoalaTeaPlayer: 52b9f24cf3730099164e06767e5d480b0532064e
-  KTResponsiveUI: 6e17f26edb8ccefd935b14de8775e0d97e7ef380
-  Pageboy: d5b9fe9a59202674c44111e513e67ccc680e18b7
+  KTResponsiveUI: b3009bb075d72f4c2ffcb450728c2b442a392137
+  Pageboy: 5970f6138b035380fd633b1813b7cc056784b784
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
-  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
-  SideMenu: c906c96a594fd574867f79dd12f84c63cd8e1854
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
+  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
   Skeleton: b76249b7d6a73a9913e164c8030647a3e005c700
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwifterSwift: 5f406a5f831343312d6d5b34282b57ef3f52c40b
+  SwifterSwift: 4d962b5d653760b85266832aff6ab6d08c1b7974
   SwiftGen: 444b4c467e512a4812b8a800d731643fd265139e
   SwiftIcons: b20641adce6b71fcb2e72389b4b5f2e87252df99
-  SwiftSoup: 6a31eb02551c9c523eea14aef9d9e70f1466ff99
-  SwiftyBeaver: 91057725648ee4980308f1650af077d04b3654a0
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftSoup: 86a1f5ad07b7e3d14ab1a9324a58c75ae2215e79
+  SwiftyBeaver: e10b1668e0512229c36c34769b97eed3dfae2ca3
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Tabman: c8bae06c9de5cbc6a33b52d036103d5afcf444e0
   UIFontComplete: 7e3ce7f0a12d2529fb07f537e262aabfa87df280
 
-PODFILE CHECKSUM: b2f7e5b835328615ff05141f07971cfd905ae4a2
+PODFILE CHECKSUM: 24afed6eace96e9442a688a16bba5d23ee9a199e
 
 COCOAPODS: 1.3.1
