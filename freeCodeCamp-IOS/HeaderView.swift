@@ -50,7 +50,7 @@ class HeaderView: UIView {
         setupPlayView()
         
         titleLabel.snp.makeConstraints{ (make) in
-            make.bottom.equalTo(playView.snp.top).offset(UIView.getValueScaledByScreenHeightFor(baseValue: -60))
+            make.bottom.equalTo(playView.snp.top).offset(UIView.getValueScaledByScreenHeightFor(baseValue: -40))
             make.left.equalToSuperview().offset(UIView.getValueScaledByScreenWidthFor(baseValue: 15))
             make.right.equalToSuperview().inset(UIView.getValueScaledByScreenHeightFor(baseValue: 15))
         }

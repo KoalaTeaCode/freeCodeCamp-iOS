@@ -61,7 +61,6 @@ class PodcastDescriptionView: UIView {
             self.label.sizeToFit()
             self.height = self.label.height + self.bottomMarginForLabel
         }
-        log.verbose(podcastModel.markdown)
     }
 }
 
