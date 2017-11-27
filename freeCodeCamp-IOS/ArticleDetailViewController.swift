@@ -28,14 +28,22 @@ class ArticleDetailViewController: UIViewController {
         self.view.backgroundColor = .white
         self.view.addSubview(scrollView)
         
-        let headerView = HeaderView(width: 375, height: 200)
+        let headerView = HeaderView(width: 375, height: 180)
         headerView.setupHeader(viewModel: self.model)
         headerView.delegate = self
         self.scrollView.addSubview(headerView)
         
-        downView = try? DownView(frame: CGRect(x: 0, y: headerView.bottomLeftPoint().y, width: self.view.width, height: self.view.height), markdownString: model.markdown!) {}
+        guard let markdown = model.markdown else { return }
+        
+        downView = try? DownView(frame: CGRect(x: 0, y: headerView.bottomLeftPoint().y, width: self.view.width, height: self.view.height), markdownString: markdown) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+                self.downView.height = self.downView.scrollView.contentSize.height
+            }
+        }
+        downView.scrollView.isScrollEnabled = false
+
         self.scrollView.insertSubview(downView!, belowSubview: headerView)
-        downView!.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        downView.scrollView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -headerView.height).isActive = true
     }
 
     override func didReceiveMemoryWarning() {

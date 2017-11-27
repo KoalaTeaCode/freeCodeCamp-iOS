@@ -30,8 +30,12 @@ class PodcastPageViewController: TabmanViewController, PageboyViewControllerData
         
         // configure the bar
         self.bar.style = .scrollingButtonBar
-        
         self.bar.items = barItems
+        
+        self.bar.appearance = TabmanBar.Appearance({ (appearance) in
+            appearance.layout.height = .explicit(value: UIView.getValueScaledByScreenHeightFor(baseValue: 40))
+            appearance.text.font = UIFont.boldSystemFont(ofSize: UIView.getValueScaledByScreenWidthFor(baseValue: 14))
+        })
         
         self.reloadPages()
         

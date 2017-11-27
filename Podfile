@@ -29,7 +29,7 @@ target 'freeCodeCamp-IOS' do
   pod 'SwiftGen'
   pod 'SwiftSoup'
   pod 'SwiftyJSON'
-  pod 'Tabman'
+  pod 'Tabman', :git => 'https://github.com/themisterholliday/Tabman.git'
   pod 'UIFontComplete'
 
   target 'freeCodeCamp-IOSTests' do
