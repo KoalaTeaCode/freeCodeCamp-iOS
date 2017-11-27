@@ -144,10 +144,11 @@ extension HeaderView {
     }
     
     @objc func upvoteButtonPressed() {
-        guard UserManager.sharedInstance.isCurrentUserLoggedIn() == true else {
-            Helpers.alertWithMessage(title: Helpers.Alerts.error, message: Helpers.Messages.youMustLogin, completionHandler: nil)
-            return
-        }
+        // @TODO: Remove this because we are now allowing anonymous. Maybe we should add this in again later? Or sync
+//        guard UserManager.sharedInstance.isCurrentUserLoggedIn() == true else {
+//            Helpers.alertWithMessage(title: Helpers.Alerts.error, message: Helpers.Messages.youMustLogin, completionHandler: nil)
+//            return
+//        }
         
         // Immediately set UI to upvote
         self.setUpvoteTo(!self.upVoteButton.isSelected)
@@ -164,10 +165,11 @@ extension HeaderView {
     }
     
     @objc func downVoteButtonPressed() {
-        guard UserManager.sharedInstance.isCurrentUserLoggedIn() == true else {
-            Helpers.alertWithMessage(title: Helpers.Alerts.error, message: Helpers.Messages.youMustLogin, completionHandler: nil)
-            return
-        }
+        // @TODO: Remove this because we are now allowing anonymous. Maybe we should add this in again later? Or sync
+//        guard UserManager.sharedInstance.isCurrentUserLoggedIn() == true else {
+//            Helpers.alertWithMessage(title: Helpers.Alerts.error, message: Helpers.Messages.youMustLogin, completionHandler: nil)
+//            return
+//        }
         
         // Immediately set UI to downvote
         self.setUpvoteTo(false)
