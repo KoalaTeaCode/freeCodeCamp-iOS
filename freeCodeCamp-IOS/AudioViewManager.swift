@@ -74,7 +74,7 @@ class AudioViewManager: NSObject {
             self.setupView(over: topController)
             
             // Move top controller's view's bottom constraint
-            if let controller = topController as? ContainerViewController {
+            if let controller = topController as? MainContainerViewController {
                 controller.setContainerViewInset()
             }
             
@@ -97,7 +97,7 @@ class AudioViewManager: NSObject {
             }
             
             // Move top controller's view's bottom constraint
-            if let controller = topController as? ContainerViewController {
+            if let controller = topController as? MainContainerViewController {
                 controller.removeContainerViewInset()
             }
         }

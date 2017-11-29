@@ -1,8 +1,8 @@
 //
-//  GeneralTableViewController.swift
+//  TopTableViewController.swift
 //  freeCodeCamp-IOS
 //
-//  Created by Craig Holliday on 11/2/17.
+//  Created by Keith Holliday on 11/28/17.
 //  Copyright © 2017 Koala Tea. All rights reserved.
 //
 
@@ -10,10 +10,8 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
-    typealias tableViewCell = T
-    
-    var headers = [PodcastCategoryIds.javascript.readable, PodcastCategoryIds.apple.readable, PodcastCategoryIds.programming.readable]
+class TopTableViewController: UITableViewController {
+    typealias tableViewCell = NumberedArticleTableViewCell
     
     var type: PodcastTypes
     var tabTitle: String
@@ -79,8 +77,7 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        guard self.type == .recommended else { return 1 }
-        return 3
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,10 +94,11 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! tableViewCell
-
+        
         // Configure the cell...
         if let viewModel = podcastViewModelController.viewModel(at: indexPath.row) {
             cell.viewModel = viewModel
+            cell.numberLabel.text = String(indexPath.row + 1) + "."
             if let lastIndexPath = self.tableView?.indexPathForLastRow {
                 if let lastItem = podcastViewModelController.viewModel(at: lastIndexPath.row) {
                     self.checkPage(currentIndexPath: indexPath,
@@ -121,20 +119,15 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard self.type == .recommended else { return "" }
-        return headers[section]
-    }
 }
 
-extension GeneralTableViewController: ArticleDetailViewControllerDelegate {
+extension TopTableViewController: ArticleDetailViewControllerDelegate {
     func modelDidChange(viewModel: PodcastViewModel) {
         self.podcastViewModelController.update(with: viewModel)
     }
 }
 
-extension GeneralTableViewController {
+extension TopTableViewController {
     // MARK: Data Getters
     func checkPage(currentIndexPath: IndexPath, lastIndexPath: IndexPath, lastIdentifier: String) {
         let nextPage: Int = Int(currentIndexPath.item / self.pageSize) + 1
@@ -161,8 +154,3 @@ extension GeneralTableViewController {
         }
     }
 }
-
-import UIKit
-
-//private let reuseIdentifier = "Cell"
-

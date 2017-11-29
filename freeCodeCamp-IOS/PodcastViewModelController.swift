@@ -56,7 +56,9 @@ public class PodcastViewModelController {
         if clearData {
             self.clearViewModels()
         }
+        
         let filterObject = FilterObject(type: type, tags: tags, lastDate: beforeDate, categories: categories)
+        
         repository.getData(filterObject: filterObject, onSucces: { (podcasts) in
             let newViewModels: [ViewModel?] = podcasts.map { model in
                 return ViewModel(podcast: model)
