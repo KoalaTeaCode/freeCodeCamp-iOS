@@ -50,7 +50,7 @@ class HeaderView: UIView {
         setupPlayView()
         
         titleLabel.snp.makeConstraints{ (make) in
-            make.bottom.equalTo(playView.snp.top).offset(UIView.getValueScaledByScreenHeightFor(baseValue: -60))
+            make.bottom.equalTo(playView.snp.top).offset(UIView.getValueScaledByScreenHeightFor(baseValue: -40))
             make.left.equalToSuperview().offset(UIView.getValueScaledByScreenWidthFor(baseValue: 15))
             make.right.equalToSuperview().inset(UIView.getValueScaledByScreenHeightFor(baseValue: 15))
         }
@@ -144,10 +144,11 @@ extension HeaderView {
     }
     
     @objc func upvoteButtonPressed() {
-        guard UserManager.sharedInstance.isCurrentUserLoggedIn() == true else {
-            Helpers.alertWithMessage(title: Helpers.Alerts.error, message: Helpers.Messages.youMustLogin, completionHandler: nil)
-            return
-        }
+        // @TODO: Remove this because we are now allowing anonymous. Maybe we should add this in again later? Or sync
+//        guard UserManager.sharedInstance.isCurrentUserLoggedIn() == true else {
+//            Helpers.alertWithMessage(title: Helpers.Alerts.error, message: Helpers.Messages.youMustLogin, completionHandler: nil)
+//            return
+//        }
         
         // Immediately set UI to upvote
         self.setUpvoteTo(!self.upVoteButton.isSelected)
@@ -164,10 +165,11 @@ extension HeaderView {
     }
     
     @objc func downVoteButtonPressed() {
-        guard UserManager.sharedInstance.isCurrentUserLoggedIn() == true else {
-            Helpers.alertWithMessage(title: Helpers.Alerts.error, message: Helpers.Messages.youMustLogin, completionHandler: nil)
-            return
-        }
+        // @TODO: Remove this because we are now allowing anonymous. Maybe we should add this in again later? Or sync
+//        guard UserManager.sharedInstance.isCurrentUserLoggedIn() == true else {
+//            Helpers.alertWithMessage(title: Helpers.Alerts.error, message: Helpers.Messages.youMustLogin, completionHandler: nil)
+//            return
+//        }
         
         // Immediately set UI to downvote
         self.setUpvoteTo(false)

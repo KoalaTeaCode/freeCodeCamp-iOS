@@ -44,14 +44,15 @@ class MainTabViewController: UITabBarController, UITabBarControllerDelegate {
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(self.leftBarButtonPressed))
         self.navigationItem.rightBarButtonItem = rightBarButton
         
-        switch UserManager.sharedInstance.getActiveUser().isLoggedIn() {
-        case false:
-            let leftBarButton = UIBarButtonItem(title: L10n.loginTitle, style: .done, target: self, action: #selector(self.loginButtonPressed))
-            self.navigationItem.leftBarButtonItem = leftBarButton
-        case true:
-            let leftBarButton = UIBarButtonItem(title: L10n.logoutTitle, style: .done, target: self, action: #selector(self.logoutButtonPressed))
-            self.navigationItem.leftBarButtonItem = leftBarButton
-        }
+        // @TODO: Add back when we support login
+//        switch UserManager.sharedInstance.getActiveUser().isLoggedIn() {
+//        case false:
+//            let leftBarButton = UIBarButtonItem(title: L10n.loginTitle, style: .done, target: self, action: #selector(self.loginButtonPressed))
+//            self.navigationItem.leftBarButtonItem = leftBarButton
+//        case true:
+//            let leftBarButton = UIBarButtonItem(title: L10n.logoutTitle, style: .done, target: self, action: #selector(self.logoutButtonPressed))
+//            self.navigationItem.leftBarButtonItem = leftBarButton
+//        }
     }
     
     @objc func leftBarButtonPressed() {

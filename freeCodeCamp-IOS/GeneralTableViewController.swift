@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwifterSwift
 
 private let reuseIdentifier = "Cell"
 
@@ -42,6 +43,11 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     
     // ViewModelController
     private let podcastViewModelController: PodcastViewModelController = PodcastViewModelController()
+    private var itemCountIsZero: Bool {
+        get {
+            return podcastViewModelController.viewModelsCount == 0
+        }
+    }
     
     init(tableViewStyle: UITableViewStyle,
          tags: [Int] = [],
@@ -84,13 +90,10 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if podcastViewModelController.viewModelsCount > 0 {
-            //            self.skeletonCollectionView.fadeOut(duration: 0.5, completion: nil)
-        }
         if podcastViewModelController.viewModelsCount <= 0 {
             // Load initial data
             self.getData(lastIdentifier: "", nextPage: 0)
+            return 6
         }
         return podcastViewModelController.viewModelsCount
     }
@@ -98,9 +101,15 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! tableViewCell
 
+        if itemCountIsZero {
+            cell.setupSkeletonCell()
+            return cell
+        }
+        
         // Configure the cell...
         if let viewModel = podcastViewModelController.viewModel(at: indexPath.row) {
             cell.viewModel = viewModel
+            cell.removeSkeletonCell()
             if let lastIndexPath = self.tableView?.indexPathForLastRow {
                 if let lastItem = podcastViewModelController.viewModel(at: lastIndexPath.row) {
                     self.checkPage(currentIndexPath: indexPath,
@@ -124,7 +133,10 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard self.type == .recommended else { return "" }
-        return headers[section]
+        if podcastViewModelController.viewModelsCount > 0 {
+            return headers[section]
+        }
+        return "Loading..."
     }
 }
 

@@ -53,7 +53,61 @@ class SkeletonCollectionView: UIView, UICollectionViewDataSource {
         
         // Configure the cell
         cell.setupSkeletonCell()
+
+        return cell
+    }
+}
+
+class SkeletonTableView: UIView, UITableViewDataSource, UITableViewDelegate {
+    
+    var tableView: UITableView!
+    
+    var tableViewStyle: UITableViewStyle = .plain
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+//        let newFrame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        let newFrame = frame
+        self.frame = newFrame
+        self.tableView = UITableView(frame: newFrame, style: self.tableViewStyle)
+        self.addSubview(self.tableView)
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        self.tableView.register(RegularArticleTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        
+        self.tableView.rowHeight = UIView.getValueScaledByScreenHeightFor(baseValue: 144)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! RegularArticleTableViewCell
+        
+        // Configure the cell
+        cell.setupSkeletonCell()
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch tableViewStyle {
+        case .grouped:
+            return "test"
+        case .plain:
+            return ""
+        }
     }
 }

@@ -157,13 +157,18 @@ extension API {
         params[Params.search] = searchTerm
         params[Params.createdAtBefore] = beforeDate
         
-        let user = UserManager.sharedInstance.getActiveUser()
-        let userToken = user.token
-        let _headers : HTTPHeaders = [
-            Headers.authorization:Headers.bearer + userToken,
-            ]
+//        let user = UserManager.sharedInstance.getActiveUser()
+//        let userToken = user.token
+//        let _headers : HTTPHeaders = [
+//            Headers.authorization:Headers.bearer + userToken,
+//            ]
+        
+        guard let indetifier = UIDevice.current.identifierForVendor else {
+            return
+        }
+        params[Params.deviceToken] = indetifier.uuidString
 
-        Alamofire.request(urlString, method: .get, parameters: params, headers: _headers).responseJSON { response in
+        Alamofire.request(urlString, method: .get, parameters: params).responseJSON { response in
             switch response.result {
             case .success:
                 guard let responseData = response.data else {
@@ -224,6 +229,11 @@ extension API {
             params[Params.createdAtBefore] = beforeDate
         }
         
+        guard let indetifier = UIDevice.current.identifierForVendor else {
+            return
+        }
+        urlString += "?deviceToken=\(indetifier.uuidString)"
+        
         // @TODO: Allow for an array and join the array
         if (tags != "") {
             params[Params.tags] = tags
@@ -273,16 +283,22 @@ extension API {
 // MARK: Voting
 extension API {
     func upvotePodcast(podcastId: String, completion: @escaping (_ success: Bool?, _ active: Bool?) -> Void) {
-        let urlString = rootURL + Endpoints.posts + "/" + podcastId + Endpoints.upvote
+        var urlString = rootURL + Endpoints.posts + "/" + podcastId + Endpoints.upvote
         
-        let user = UserManager.sharedInstance.getActiveUser()
-        let userToken = user.token
-        let _headers : HTTPHeaders = [
-            Headers.authorization:Headers.bearer + userToken,
-            Headers.contentType:Headers.x_www_form_urlencoded
-        ]
+//        let user = UserManager.sharedInstance.getActiveUser()
+//        let userToken = user.token
+//        let _headers : HTTPHeaders = [
+//            Headers.authorization:Headers.bearer + userToken,
+//            Headers.contentType:Headers.x_www_form_urlencoded
+//        ]
+        var params = [String: String]()
+        guard let indetifier = UIDevice.current.identifierForVendor else {
+            return
+        }
+        urlString += "?deviceToken=\(indetifier.uuidString)"
         
-        Alamofire.request(urlString, method: .post, parameters: nil, encoding: URLEncoding.httpBody , headers: _headers).responseJSON { response in
+        Alamofire.request(urlString, method: .post, parameters: params, encoding: URLEncoding.httpBody)
+            .responseJSON { response in
             switch response.result {
             case .success:
                 let jsonResponse = response.result.value as! NSDictionary
@@ -306,16 +322,23 @@ extension API {
     }
     
     func downvotePodcast(podcastId: String, completion: @escaping (_ success: Bool?, _ active: Bool?) -> Void) {
-        let urlString = rootURL + Endpoints.posts + "/" + podcastId + Endpoints.downvote
+        var urlString = rootURL + Endpoints.posts + "/" + podcastId + Endpoints.downvote
         
-        let user = UserManager.sharedInstance.getActiveUser()
-        let userToken = user.token
-        let _headers : HTTPHeaders = [
-            Headers.authorization:Headers.bearer + userToken,
-            Headers.contentType:Headers.x_www_form_urlencoded
-        ]
+//        let user = UserManager.sharedInstance.getActiveUser()
+//        let userToken = user.token
+//        let _headers : HTTPHeaders = [
+//            Headers.authorization:Headers.bearer + userToken,
+//            Headers.contentType:Headers.x_www_form_urlencoded
+//        ]
         
-        Alamofire.request(urlString, method: .post, parameters: nil, encoding: URLEncoding.httpBody , headers: _headers).responseJSON { response in
+        var params = [String: String]()
+        guard let indetifier = UIDevice.current.identifierForVendor else {
+            return
+        }
+        urlString += "?deviceToken=\(indetifier.uuidString)"
+        
+        Alamofire.request(urlString, method: .post, parameters: params, encoding: URLEncoding.httpBody)
+            .responseJSON { response in
             switch response.result {
             case .success:
                 let jsonResponse = response.result.value as! NSDictionary
