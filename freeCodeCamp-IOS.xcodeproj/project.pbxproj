@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013AB3021FCF2032004B4AB1 /* RecommendedViewModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013AB3011FCF2032004B4AB1 /* RecommendedViewModelController.swift */; };
 		01716E751FCE6C43009BD8F7 /* TopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01716E741FCE6C42009BD8F7 /* TopTableViewController.swift */; };
 		01716E771FCE6D6B009BD8F7 /* RecommendedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01716E761FCE6D6B009BD8F7 /* RecommendedTableViewController.swift */; };
 		01BB1D6D1F29999E004A912E /* PodcastPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BB1D6C1F29999E004A912E /* PodcastPageViewController.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		013AB3011FCF2032004B4AB1 /* RecommendedViewModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedViewModelController.swift; sourceTree = "<group>"; };
 		01716E741FCE6C42009BD8F7 /* TopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewController.swift; sourceTree = "<group>"; };
 		01716E761FCE6D6B009BD8F7 /* RecommendedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTableViewController.swift; sourceTree = "<group>"; };
 		01BB1D6C1F29999E004A912E /* PodcastPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastPageViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		013AB2FF1FCF2006004B4AB1 /* Recommended */ = {
+			isa = PBXGroup;
+			children = (
+				01716E761FCE6D6B009BD8F7 /* RecommendedTableViewController.swift */,
+				013AB3011FCF2032004B4AB1 /* RecommendedViewModelController.swift */,
+			);
+			name = Recommended;
+			sourceTree = "<group>";
+		};
 		01716E711FCE69AD009BD8F7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +249,7 @@
 		1686FBFF1F009EC00088A6C1 /* freeCodeCamp-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				013AB2FF1FCF2006004B4AB1 /* Recommended */,
 				01716E731FCE69F2009BD8F7 /* Articles */,
 				01716E721FCE69C1009BD8F7 /* User */,
 				01716E711FCE69AD009BD8F7 /* Base */,
@@ -254,7 +266,6 @@
 				164FE9DF1F02EE4E009419CA /* Podcasts */,
 				16AD3E031F9B06950084C545 /* Search */,
 				01716E741FCE6C42009BD8F7 /* TopTableViewController.swift */,
-				01716E761FCE6D6B009BD8F7 /* RecommendedTableViewController.swift */,
 			);
 			path = "freeCodeCamp-IOS";
 			sourceTree = "<group>";
@@ -666,6 +677,7 @@
 				16FA84031F8D323700A45D9B /* SkeletonCollectionView.swift in Sources */,
 				166036211F266FF300A22B7B /* Notifications.swift in Sources */,
 				169806A61F8EF3970075D8AD /* L10nEnum.swift in Sources */,
+				013AB3021FCF2032004B4AB1 /* RecommendedViewModelController.swift in Sources */,
 				01BB1D6D1F29999E004A912E /* PodcastPageViewController.swift in Sources */,
 				16CE69911F9807CF0057BAC3 /* PodcastDescriptionView.swift in Sources */,
 				16307FCC1F8FEE3A001783CB /* PodcastViewModelController.swift in Sources */,

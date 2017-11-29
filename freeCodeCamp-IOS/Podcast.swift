@@ -12,6 +12,21 @@ enum PodcastTypes: String {
     case new = "new"
     case top = "top"
     case recommended = "recommended"
+    
+    private var description: String {
+        switch self {
+        case .recommended:
+            return "recommended"
+        case .new:
+            return "new"
+        case .top:
+            return "top"
+        }
+    }
+    
+    var readable: String {
+        return self.description.capitalized
+    }
 }
 
 enum PodcastCategoryIds: String {
