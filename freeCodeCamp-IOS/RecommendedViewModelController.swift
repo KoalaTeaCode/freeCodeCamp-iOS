@@ -38,6 +38,7 @@ public class RecommendedViewModelController {
         guard let modelsIndex = index else { return }
         self.viewModels.remove(at: modelsIndex)
         self.viewModels.insert(podcast, at: modelsIndex)
+        self.repository.updateDataSource(with: podcast.baseModelRepresentation)
     }
     
     func fetchData(type: String = "",

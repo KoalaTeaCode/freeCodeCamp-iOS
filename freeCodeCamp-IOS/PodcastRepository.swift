@@ -135,3 +135,9 @@ class PodcastRepository: Repository<Podcast> {
         defaults.set(todayString, forKey: key)
     }
 }
+
+extension PodcastRepository {
+    func updateDataSource(with item: DataModel) {
+        self.dataSource.update(item: item)
+    }
+}

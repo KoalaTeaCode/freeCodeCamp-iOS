@@ -163,6 +163,35 @@ extension Podcast {
     }
 }
 
+extension Podcast {
+    init(viewModel: PodcastViewModel) {
+        self._id = viewModel._id
+        self.title = viewModel.podcastTitle
+        self.description = viewModel.encodedPodcastDescription
+        self.guid = ""
+        self.markdown = viewModel.markdown
+        self.author = viewModel.postAuthor
+        self.totalFavorites = viewModel.totalFavorites
+        self.type = viewModel.podcastTitle
+        self.summary = viewModel.summary
+        self.date = viewModel.uploadDateiso8601
+        var link = ""
+        if let postLinkString = viewModel.postLinkURL?.absoluteString {
+            link = postLinkString
+        }
+        self.link = link
+        self.categories = viewModel.categories
+        var featuredImage = ""
+        if let featuredImageUrlString = viewModel.featuredImageURL?.absoluteString {
+            featuredImage = featuredImageUrlString
+        }
+        self.featuredImage = featuredImage
+        self.score = viewModel.score
+        self.upvoted = viewModel.isUpvoted
+        self.downvoted = viewModel.isDownvoted
+    }
+}
+
 // Extension to go Encodable -> Dictionary
 extension Encodable {
     var dictionary: [String: Any] {

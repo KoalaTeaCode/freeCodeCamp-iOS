@@ -67,6 +67,10 @@ public struct PodcastViewModel: Codable {
         self.totalFavorites = 0
         self.postAuthor = ""
     }
+    
+    var baseModelRepresentation: Podcast {
+        return Podcast(viewModel: self)
+    }
 }
 
 extension PodcastViewModel: Equatable {

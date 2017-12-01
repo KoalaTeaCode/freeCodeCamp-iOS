@@ -97,6 +97,7 @@ class RecommendedTableViewController<T: PodcastCellBase>: UITableViewController 
         // Configure the cell...
         if let viewModel = viewModels[indexPath.row] {
             cell.viewModel = viewModel
+            log.verbose(viewModel.isUpvoted)
             
             // Is this to check if we are paging?
             if let lastIndexPath = self.tableView?.indexPathForLastRow {
