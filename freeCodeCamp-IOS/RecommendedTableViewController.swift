@@ -1,22 +1,28 @@
 //
-//  GeneralTableViewController.swift
+//  RecommendedTableViewController.swift
 //  freeCodeCamp-IOS
 //
-//  Created by Craig Holliday on 11/2/17.
+//  Created by Keith Holliday on 11/28/17.
 //  Copyright © 2017 Koala Tea. All rights reserved.
 //
 
 import UIKit
-import SwifterSwift
 
 private let reuseIdentifier = "Cell"
 
-class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
+class RecommendedTableViewController<T: PodcastCellBase>: UITableViewController {
     typealias tableViewCell = T
     
-    var headers = [PodcastCategoryIds.javascript.readable, PodcastCategoryIds.apple.readable, PodcastCategoryIds.programming.readable]
+    var headers = [
+        PodcastTypes.recommended.readable,
+        PodcastCategoryIds.startup.readable,
+        PodcastCategoryIds.apple.readable,
+        PodcastCategoryIds.programming.readable]
     
-    var type: PodcastTypes
+    var sections = [
+        PodcastTypes.recommended.rawValue,
+        PodcastCategoryIds.startup.rawValue]
+    
     var tabTitle: String
     var tags: [Int]
     var categories: [String]
@@ -25,43 +31,33 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     var loading = false
     let pageSize = 10
     let preloadMargin = 5
-    
     var lastLoadedPage = 0
     
     var customTabBarItem: UITabBarItem! {
-        get {
-            switch type {
-            case .new:
-                return nil
-            case .recommended:
-                return UITabBarItem(title: L10n.tabBarJustForYou, image: #imageLiteral(resourceName: "activity_feed"), selectedImage: #imageLiteral(resourceName: "activity_feed_selected"))
-            case .top:
-                return UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
-            }
-        }
+        return UITabBarItem(title: L10n.tabBarJustForYou, image: #imageLiteral(resourceName: "activity_feed"), selectedImage: #imageLiteral(resourceName: "activity_feed_selected"))
     }
     
     // ViewModelController
-    private let podcastViewModelController: PodcastViewModelController = PodcastViewModelController()
-    private var itemCountIsZero: Bool {
-        get {
-            return podcastViewModelController.viewModelsCount == 0
-        }
-    }
+    // @TODO: Think we can override this using a getViewModelController method then share more code
+    private let viewModelController: RecommendedViewModelController = RecommendedViewModelController()
     
     init(tableViewStyle: UITableViewStyle,
          tags: [Int] = [],
          categories: [PodcastCategoryIds] = [],
          type: PodcastTypes = .new,
          tabTitle: String = "") {
+
         self.tabTitle = tabTitle
-        self.type = type
         self.tags = tags
         self.categories = categories.flatMap { $0.rawValue }
         super.init(style: tableViewStyle)
         self.tabBarItem = self.customTabBarItem
         if tabTitle != "" {
             self.title = tabTitle
+        }
+        
+        if viewModelController.viewModelsCount <= 0 {
+            self.getData(lastIdentifier: "", nextPage: 0)
         }
     }
     
@@ -73,7 +69,6 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.register(tableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-        
         self.tableView.rowHeight = UIView.getValueScaledByScreenHeightFor(baseValue: 144)
     }
     
@@ -85,33 +80,28 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        guard self.type == .recommended else { return 1 }
-        return 3
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if podcastViewModelController.viewModelsCount <= 0 {
-            // Load initial data
-            self.getData(lastIdentifier: "", nextPage: 0)
-            return 6
-        }
-        return podcastViewModelController.viewModelsCount
+        return viewModelController
+            .getModelsForGroup(group: self.sections[section]).count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! tableViewCell
-
-        if itemCountIsZero {
-            cell.setupSkeletonCell()
-            return cell
-        }
+        
+        let viewModels = viewModelController
+            .getModelsForGroup(group: self.sections[indexPath.section])
         
         // Configure the cell...
-        if let viewModel = podcastViewModelController.viewModel(at: indexPath.row) {
+        if let viewModel = viewModels[indexPath.row] {
             cell.viewModel = viewModel
-            cell.removeSkeletonCell()
+            log.verbose(viewModel.isUpvoted)
+            
+            // Is this to check if we are paging?
             if let lastIndexPath = self.tableView?.indexPathForLastRow {
-                if let lastItem = podcastViewModelController.viewModel(at: lastIndexPath.row) {
+                if let lastItem = viewModels[lastIndexPath.row] {
                     self.checkPage(currentIndexPath: indexPath,
                                    lastIndexPath: lastIndexPath,
                                    lastIdentifier: lastItem.uploadDateiso8601)
@@ -123,7 +113,7 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let viewModel = podcastViewModelController.viewModel(at: indexPath.row) {
+        if let viewModel = viewModelController.viewModel(at: indexPath.row) {
             let vc = ArticleDetailViewController()
             vc.model = viewModel
             vc.delegate = self
@@ -132,21 +122,17 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard self.type == .recommended else { return "" }
-        if podcastViewModelController.viewModelsCount > 0 {
-            return headers[section]
-        }
-        return "Loading..."
+        return headers[section]
     }
 }
 
-extension GeneralTableViewController: ArticleDetailViewControllerDelegate {
+extension RecommendedTableViewController: ArticleDetailViewControllerDelegate {
     func modelDidChange(viewModel: PodcastViewModel) {
-        self.podcastViewModelController.update(with: viewModel)
+        self.viewModelController.update(with: viewModel)
     }
 }
 
-extension GeneralTableViewController {
+extension RecommendedTableViewController {
     // MARK: Data Getters
     func checkPage(currentIndexPath: IndexPath, lastIndexPath: IndexPath, lastIdentifier: String) {
         let nextPage: Int = Int(currentIndexPath.item / self.pageSize) + 1
@@ -161,16 +147,22 @@ extension GeneralTableViewController {
     func getData(lastIdentifier: String, nextPage: Int) {
         guard self.loading == false else { return }
         self.loading = true
-        podcastViewModelController.fetchData(type: self.type.rawValue, createdAtBefore: lastIdentifier, tags: self.tags, categories: self.categories, page: nextPage, onSucces: {
-            self.loading = false
-            self.lastLoadedPage = nextPage
-            DispatchQueue.main.async {
-                self.tableView?.reloadData()
-            }
-        }) { (apiError) in
-            self.loading = false
-            log.error(apiError)
-        }
+        
+        viewModelController.fetchData(type: PodcastTypes.recommended.rawValue,
+                                      createdAtBefore: lastIdentifier,
+                                      tags: self.tags,
+                                      categories: self.categories,
+                                      page: nextPage,
+                                      onSucces: {
+                                            self.loading = false
+                                            self.lastLoadedPage = nextPage
+                                            DispatchQueue.main.async {
+                                                self.tableView?.reloadData()
+                                            }
+                                        }) { (apiError) in
+                                            self.loading = false
+                                            log.error(apiError)
+                                        }
     }
 }
 

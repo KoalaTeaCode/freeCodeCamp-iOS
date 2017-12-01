@@ -151,7 +151,7 @@ extension API {
                       createdAtBefore beforeDate: String = "",
                       onSucces: @escaping ([Podcast]) -> Void,
                       onFailure: @escaping (APIError?) -> Void) {
-        let urlString = rootURL + Endpoints.posts
+        var urlString = rootURL + Endpoints.posts
         
         var params = [String: String]()
         params[Params.search] = searchTerm
@@ -166,8 +166,8 @@ extension API {
         guard let indetifier = UIDevice.current.identifierForVendor else {
             return
         }
-        params[Params.deviceToken] = indetifier.uuidString
-
+        urlString += "?deviceToken=\(indetifier.uuidString)"
+        
         Alamofire.request(urlString, method: .get, parameters: params).responseJSON { response in
             switch response.result {
             case .success:

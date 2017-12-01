@@ -69,10 +69,7 @@ extension AppDelegate {
     
     func setupFirstScreen() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootVC = ContainerViewController()
-//        let layout = UICollectionViewLayout()
-//        let rootVC = CollectionViewController(collectionViewLayout: layout)
-//        let rootVC = TableViewController(style: .grouped)
+        let rootVC = MainContainerViewController()
         rootVC.view.backgroundColor = .white
         window!.rootViewController = rootVC
         window!.makeKeyAndVisible()

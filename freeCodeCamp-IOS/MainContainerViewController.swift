@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
+class MainContainerViewController: UIViewController {
     
     var containerView = UIView()
 
     private var navController = UINavigationController()
-    private var tabController = CustomTabViewController()
+    private var tabController = MainTabViewController()
     
     // MARK: - View Life Cycle
     

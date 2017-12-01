@@ -43,6 +43,7 @@ public class PodcastViewModelController {
         guard let modelsIndex = index else { return }
         self.viewModels.remove(at: modelsIndex)
         self.viewModels.insert(podcast, at: modelsIndex)
+        self.repository.updateDataSource(with: podcast.baseModelRepresentation)
     }
     
     func fetchData(type: String = "",
@@ -56,7 +57,9 @@ public class PodcastViewModelController {
         if clearData {
             self.clearViewModels()
         }
+        
         let filterObject = FilterObject(type: type, tags: tags, lastDate: beforeDate, categories: categories)
+        
         repository.getData(filterObject: filterObject, onSucces: { (podcasts) in
             let newViewModels: [ViewModel?] = podcasts.map { model in
                 return ViewModel(podcast: model)

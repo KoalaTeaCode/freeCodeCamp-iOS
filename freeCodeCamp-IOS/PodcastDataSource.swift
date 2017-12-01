@@ -106,7 +106,25 @@ class PodcastDataSource: DataSource {
     }
     
     func update(item: T) {
-        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.getIndexById(id: item._id, completion: { (index) in
+                guard let index = index else { return }
+                self.getAll(completion: { (podcasts) in
+                    guard var allPodcasts = podcasts else { return }
+                    allPodcasts.remove(at: index)
+                    allPodcasts.insert(item, at: index)
+                    self.override(with: allPodcasts)
+                })
+            })
+        }
+    }
+    
+    func override(with items: [T]) {
+        do {
+            try Disk.save(items, to: .caches, as: DiskKeys.PodcastFolder.folderPath)
+        } catch let error {
+            log.error(error.localizedDescription)
+        }
     }
     
     func clean() {
@@ -115,6 +133,15 @@ class PodcastDataSource: DataSource {
     
     func deleteById(id: String) {
         
+    }
+    
+    func getIndexById(id: String, completion: @escaping (Int?) -> Void) {
+        self.getAll { (returnedData) in
+            let index = returnedData?.index { (item) -> Bool in
+                return item._id == id
+            }
+            completion(index)
+        }
     }
     
     //@TODO: We may need to check if items exist?

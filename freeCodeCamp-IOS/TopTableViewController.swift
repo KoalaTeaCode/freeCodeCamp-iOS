@@ -1,20 +1,17 @@
 //
-//  GeneralTableViewController.swift
+//  TopTableViewController.swift
 //  freeCodeCamp-IOS
 //
-//  Created by Craig Holliday on 11/2/17.
+//  Created by Keith Holliday on 11/28/17.
 //  Copyright © 2017 Koala Tea. All rights reserved.
 //
 
 import UIKit
-import SwifterSwift
 
 private let reuseIdentifier = "Cell"
 
-class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
-    typealias tableViewCell = T
-    
-    var headers = [PodcastCategoryIds.javascript.readable, PodcastCategoryIds.apple.readable, PodcastCategoryIds.programming.readable]
+class TopTableViewController: UITableViewController {
+    typealias tableViewCell = NumberedArticleTableViewCell
     
     var type: PodcastTypes
     var tabTitle: String
@@ -43,11 +40,6 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     
     // ViewModelController
     private let podcastViewModelController: PodcastViewModelController = PodcastViewModelController()
-    private var itemCountIsZero: Bool {
-        get {
-            return podcastViewModelController.viewModelsCount == 0
-        }
-    }
     
     init(tableViewStyle: UITableViewStyle,
          tags: [Int] = [],
@@ -85,31 +77,28 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        guard self.type == .recommended else { return 1 }
-        return 3
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        if podcastViewModelController.viewModelsCount > 0 {
+            //            self.skeletonCollectionView.fadeOut(duration: 0.5, completion: nil)
+        }
         if podcastViewModelController.viewModelsCount <= 0 {
             // Load initial data
             self.getData(lastIdentifier: "", nextPage: 0)
-            return 6
         }
         return podcastViewModelController.viewModelsCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! tableViewCell
-
-        if itemCountIsZero {
-            cell.setupSkeletonCell()
-            return cell
-        }
         
         // Configure the cell...
         if let viewModel = podcastViewModelController.viewModel(at: indexPath.row) {
             cell.viewModel = viewModel
-            cell.removeSkeletonCell()
+            cell.numberLabel.text = String(indexPath.row + 1) + "."
             if let lastIndexPath = self.tableView?.indexPathForLastRow {
                 if let lastItem = podcastViewModelController.viewModel(at: lastIndexPath.row) {
                     self.checkPage(currentIndexPath: indexPath,
@@ -130,23 +119,15 @@ class GeneralTableViewController<T: PodcastCellBase>: UITableViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard self.type == .recommended else { return "" }
-        if podcastViewModelController.viewModelsCount > 0 {
-            return headers[section]
-        }
-        return "Loading..."
-    }
 }
 
-extension GeneralTableViewController: ArticleDetailViewControllerDelegate {
+extension TopTableViewController: ArticleDetailViewControllerDelegate {
     func modelDidChange(viewModel: PodcastViewModel) {
         self.podcastViewModelController.update(with: viewModel)
     }
 }
 
-extension GeneralTableViewController {
+extension TopTableViewController {
     // MARK: Data Getters
     func checkPage(currentIndexPath: IndexPath, lastIndexPath: IndexPath, lastIdentifier: String) {
         let nextPage: Int = Int(currentIndexPath.item / self.pageSize) + 1
@@ -173,4 +154,3 @@ extension GeneralTableViewController {
         }
     }
 }
-

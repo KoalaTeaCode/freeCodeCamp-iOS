@@ -19,7 +19,7 @@ import SwifterSwift
 import SnapKit
 import SwiftIcons
 
-class CustomTabViewController: UITabBarController, UITabBarControllerDelegate {
+class MainTabViewController: UITabBarController, UITabBarControllerDelegate {
     
     var ifset = false
     
@@ -79,7 +79,7 @@ class CustomTabViewController: UITabBarController, UITabBarControllerDelegate {
     func setupTabs() {        
         self.viewControllers = [
             PodcastPageViewController(),
-            GeneralTableViewController<RegularArticleTableViewCell>(tableViewStyle: .grouped, type: .recommended),
+            RecommendedTableViewController<RegularArticleTableViewCell>(tableViewStyle: .grouped, type: .recommended),
             TopTableViewController(tableViewStyle: .plain, type: .top)
         ]
         

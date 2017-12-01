@@ -12,6 +12,21 @@ enum PodcastTypes: String {
     case new = "new"
     case top = "top"
     case recommended = "recommended"
+    
+    private var description: String {
+        switch self {
+        case .recommended:
+            return "recommended"
+        case .new:
+            return "new"
+        case .top:
+            return "top"
+        }
+    }
+    
+    var readable: String {
+        return self.description.capitalized
+    }
 }
 
 enum PodcastCategoryIds: String {
@@ -145,6 +160,35 @@ extension Podcast {
     
     func getLastUpdatedAsDate() -> Date? {
         return Date(iso8601String: self.date)
+    }
+}
+
+extension Podcast {
+    init(viewModel: PodcastViewModel) {
+        self._id = viewModel._id
+        self.title = viewModel.podcastTitle
+        self.description = viewModel.encodedPodcastDescription
+        self.guid = ""
+        self.markdown = viewModel.markdown
+        self.author = viewModel.postAuthor
+        self.totalFavorites = viewModel.totalFavorites
+        self.type = viewModel.podcastTitle
+        self.summary = viewModel.summary
+        self.date = viewModel.uploadDateiso8601
+        var link = ""
+        if let postLinkString = viewModel.postLinkURL?.absoluteString {
+            link = postLinkString
+        }
+        self.link = link
+        self.categories = viewModel.categories
+        var featuredImage = ""
+        if let featuredImageUrlString = viewModel.featuredImageURL?.absoluteString {
+            featuredImage = featuredImageUrlString
+        }
+        self.featuredImage = featuredImage
+        self.score = viewModel.score
+        self.upvoted = viewModel.isUpvoted
+        self.downvoted = viewModel.isDownvoted
     }
 }
 
