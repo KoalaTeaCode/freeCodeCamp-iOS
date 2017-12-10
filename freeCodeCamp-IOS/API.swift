@@ -27,6 +27,7 @@ extension API {
         static let register = "/auth/register"
         static let upvote = "/upvote"
         static let downvote = "/downvote"
+        static let videos = "/videos"
     }
     
     enum Types {
@@ -356,6 +357,106 @@ extension API {
                 Tracker.logGeneralError(error: error)
                 Helpers.alertWithMessage(title: Helpers.Alerts.error, message: error.localizedDescription, completionHandler: nil)
                 completion(false, nil)
+            }
+        }
+    }
+}
+
+// MARK: Videos
+typealias videoModel = Video
+extension API {
+    func getVideos(createdAtBefore beforeDate: String = "",
+                   onSucces: @escaping ([Video]) -> Void,
+                   onFailure: @escaping (APIError?) -> Void) {
+        var urlString = rootURL + Endpoints.videos
+        
+        var params = [String: String]()
+        params[Params.createdAtBefore] = beforeDate
+        
+//        let user = UserManager.sharedInstance.getActiveUser()
+//        let userToken = user.token
+//        let _headers : HTTPHeaders = [
+//            Headers.authorization:Headers.bearer + userToken,
+//            ]
+        
+        guard let indetifier = UIDevice.current.identifierForVendor else {
+            return
+        }
+        urlString += "?deviceToken=\(indetifier.uuidString)"
+        
+        Alamofire.request(urlString, method: .get, parameters: params).responseJSON { response in
+            switch response.result {
+            case .success:
+                guard let responseData = response.data else {
+                    // Handle error here
+                    log.error("response has no data")
+                    onFailure(.NoResponseDataError)
+                    return
+                }
+                
+                var data: [videoModel] = []
+                let jsonArray = JSON(responseData)
+                for (_, subJson):(String, JSON) in jsonArray {
+                    guard let jsonData = try? subJson.rawData() else { continue }
+                    let newObject = try? JSONDecoder().decode(videoModel.self, from: jsonData)
+                    if let newObject = newObject {
+                        data.append(newObject)
+                    }
+                }
+                onSucces(data)
+            case .failure(let error):
+                log.error(error.localizedDescription)
+                Tracker.logGeneralError(error: error)
+                onFailure(.GeneralFailure)
+            }
+        }
+    }
+    
+    func getVideosWith(searchTerm: String,
+                      createdAtBefore beforeDate: String = "",
+                      onSucces: @escaping ([Video]) -> Void,
+                      onFailure: @escaping (APIError?) -> Void) {
+        var urlString = rootURL + Endpoints.videos
+        
+        var params = [String: String]()
+        params[Params.search] = searchTerm
+        params[Params.createdAtBefore] = beforeDate
+        
+        //        let user = UserManager.sharedInstance.getActiveUser()
+        //        let userToken = user.token
+        //        let _headers : HTTPHeaders = [
+        //            Headers.authorization:Headers.bearer + userToken,
+        //            ]
+        
+        guard let indetifier = UIDevice.current.identifierForVendor else {
+            return
+        }
+        urlString += "?deviceToken=\(indetifier.uuidString)"
+        
+        Alamofire.request(urlString, method: .get, parameters: params).responseJSON { response in
+            switch response.result {
+            case .success:
+                guard let responseData = response.data else {
+                    // Handle error here
+                    log.error("response has no data")
+                    onFailure(.NoResponseDataError)
+                    return
+                }
+                
+                var data: [videoModel] = []
+                let jsonArray = JSON(responseData)
+                for (_, subJson):(String, JSON) in jsonArray {
+                    guard let jsonData = try? subJson.rawData() else { continue }
+                    let newObject = try? JSONDecoder().decode(videoModel.self, from: jsonData)
+                    if let newObject = newObject {
+                        data.append(newObject)
+                    }
+                }
+                onSucces(data)
+            case .failure(let error):
+                log.error(error.localizedDescription)
+                Tracker.logGeneralError(error: error)
+                onFailure(.GeneralFailure)
             }
         }
     }

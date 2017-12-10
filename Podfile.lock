@@ -10,8 +10,11 @@ PODS:
   - Fabric (1.7.2)
   - IQKeyboardManagerSwift (5.0.6)
   - KoalaTeaFlowLayout (0.3.1)
-  - KoalaTeaPlayer (0.1.7)
-  - KTResponsiveUI (0.2.5)
+  - KoalaTeaPlayer (0.2.0):
+    - KTResponsiveUI
+    - SnapKit
+    - SwifterSwift
+  - KTResponsiveUI (0.2.6)
   - Pageboy (2.0.4)
   - PureLayout (3.0.2)
   - Reusable (4.0.0):
@@ -59,8 +62,8 @@ DEPENDENCIES:
   - Fabric (~> 1.7.2)
   - IQKeyboardManagerSwift (~> 5.0.6)
   - KoalaTeaFlowLayout (~> 0.3.1)
-  - KoalaTeaPlayer (~> 0.1.7)
-  - KTResponsiveUI (~> 0.2.5)
+  - KoalaTeaPlayer (~> 0.2.0)
+  - KTResponsiveUI (~> 0.2.6)
   - Reusable (~> 4.0.0)
   - SDWebImage (~> 4.2.2)
   - SideMenu (~> 3.1.5)
@@ -106,8 +109,8 @@ SPEC CHECKSUMS:
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   IQKeyboardManagerSwift: 02bfbb0dff71c66d0ab77d80d25dfce0c3717735
   KoalaTeaFlowLayout: 219c45709d0873d405b2de1b27080a9c411246b7
-  KoalaTeaPlayer: 52b9f24cf3730099164e06767e5d480b0532064e
-  KTResponsiveUI: b3009bb075d72f4c2ffcb450728c2b442a392137
+  KoalaTeaPlayer: 71f4b1d3762fc118342e20ce602aa773d292ec35
+  KTResponsiveUI: c8a75fe5270e05749a5ca8d20ab008a285b5e260
   Pageboy: 5970f6138b035380fd633b1813b7cc056784b784
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
@@ -124,6 +127,6 @@ SPEC CHECKSUMS:
   Tabman: c8bae06c9de5cbc6a33b52d036103d5afcf444e0
   UIFontComplete: 7e3ce7f0a12d2529fb07f537e262aabfa87df280
 
-PODFILE CHECKSUM: 24afed6eace96e9442a688a16bba5d23ee9a199e
+PODFILE CHECKSUM: c0aad609b074c01ff847bebc5664c615362c3b3b
 
 COCOAPODS: 1.3.1

@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import SwifterSwift
 import KTResponsiveUI
+import SwiftIcons
 
 enum PlaybackSpeed: Float {
     case _1x = 1.0
@@ -182,9 +183,9 @@ class AudioView: UIView {
         skipBackwardbutton.height = iconHeight
         skipBackwardbutton.tintColor = Stylesheet.Colors.secondaryColor
         
-        playButton.setIcon(icon: .fontAwesome(.play), iconSize: iconHeight, color: Stylesheet.Colors.secondaryColor, forState: .normal)
-        pauseButton.setIcon(icon: .fontAwesome(.pause), iconSize: iconHeight, color: Stylesheet.Colors.secondaryColor, forState: .normal)
-        stopButton.setIcon(icon: .fontAwesome(.stop), iconSize: iconHeight, color: Stylesheet.Colors.secondaryColor, forState: .normal)
+        playButton.setIcon(icon: FontType.fontAwesome(.play), iconSize: iconHeight, color: Stylesheet.Colors.secondaryColor, forState: .normal)
+        pauseButton.setIcon(icon: FontType.fontAwesome(.pause), iconSize: iconHeight, color: Stylesheet.Colors.secondaryColor, forState: .normal)
+        stopButton.setIcon(icon: FontType.fontAwesome(.stop), iconSize: iconHeight, color: Stylesheet.Colors.secondaryColor, forState: .normal)
         
         skipForwardButton.setImage(#imageLiteral(resourceName: "Forward"), for: .normal)
         skipForwardButton.height = iconHeight
