@@ -9,12 +9,12 @@
 import UIKit
 import SwiftIcons
 
-protocol HeaderViewDelegate {
+protocol HeaderViewDelegate: NSObjectProtocol {
     func modelDidChange(viewModel: PodcastViewModel)
 }
 
 class HeaderView: UIView {
-    var delegate: HeaderViewDelegate?
+    weak var delegate: HeaderViewDelegate?
     
     var model: PodcastViewModel!
     
@@ -112,13 +112,13 @@ class HeaderView: UIView {
         scoreLabel.font = UIFont(font: .helveticaNeue, size: UIView.getValueScaledByScreenWidthFor(baseValue: 24))
 
         let iconSize = UIView.getValueScaledByScreenHeightFor(baseValue: 35)
-        downVoteButton.setIcon(icon: .fontAwesome(.thumbsODown), iconSize: iconSize, color: Stylesheet.Colors.offBlack, forState: .normal)
-        downVoteButton.setIcon(icon: .fontAwesome(.thumbsDown), iconSize: iconSize, color: Stylesheet.Colors.base, forState: .selected)
+        downVoteButton.setIcon(icon: FontType.fontAwesome(.thumbsODown), iconSize: iconSize, color: Stylesheet.Colors.offBlack, forState: .normal)
+        downVoteButton.setIcon(icon: FontType.fontAwesome(.thumbsDown), iconSize: iconSize, color: Stylesheet.Colors.base, forState: .selected)
         downVoteButton.setTitleColor(Stylesheet.Colors.secondaryColor, for: .selected)
         downVoteButton.addTarget(self, action: #selector(self.downVoteButtonPressed), for: .touchUpInside)
         
-        upVoteButton.setIcon(icon: .fontAwesome(.thumbsOUp), iconSize: iconSize, color: Stylesheet.Colors.offBlack, forState: .normal)
-        upVoteButton.setIcon(icon: .fontAwesome(.thumbsUp), iconSize: iconSize, color: Stylesheet.Colors.base, forState: .selected)
+        upVoteButton.setIcon(icon: FontType.fontAwesome(.thumbsOUp), iconSize: iconSize, color: Stylesheet.Colors.offBlack, forState: .normal)
+        upVoteButton.setIcon(icon: FontType.fontAwesome(.thumbsUp), iconSize: iconSize, color: Stylesheet.Colors.base, forState: .selected)
         upVoteButton.setTitleColor(Stylesheet.Colors.secondaryColor, for: .selected)
         upVoteButton.addTarget(self, action: #selector(self.upvoteButtonPressed), for: .touchUpInside)
     }

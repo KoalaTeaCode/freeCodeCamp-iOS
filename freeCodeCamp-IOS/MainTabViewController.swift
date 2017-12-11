@@ -80,7 +80,8 @@ class MainTabViewController: UITabBarController, UITabBarControllerDelegate {
         self.viewControllers = [
             PodcastPageViewController(),
             RecommendedTableViewController<RegularArticleTableViewCell>(tableViewStyle: .grouped, type: .recommended),
-            TopTableViewController(tableViewStyle: .plain, type: .top)
+            TopTableViewController(tableViewStyle: .plain, type: .top),
+            VideosTableViewController(tableViewStyle: .plain)
         ]
         
         self.tabBar.backgroundColor = .white

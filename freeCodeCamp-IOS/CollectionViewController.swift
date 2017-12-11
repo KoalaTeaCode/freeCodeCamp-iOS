@@ -9,6 +9,7 @@
 import UIKit
 import KoalaTeaFlowLayout
 import KTResponsiveUI
+import SwiftIcons
 
 private let reuseIdentifier = "Cell"
 private let headerIdentifier = "Header"
@@ -312,15 +313,15 @@ class AuthorView: UIView {
                                   width: 14,
                                   height: 18)
         self.addSubview(bookmarkButton)
-        bookmarkButton.setIcon(icon: .fontAwesome(.bookmarkO), forState: .normal)
-        bookmarkButton.setIcon(icon: .fontAwesome(.bookmark), forState: .selected)
+        bookmarkButton.setIcon(icon: FontType.fontAwesome(.bookmarkO), forState: .normal)
+        bookmarkButton.setIcon(icon: FontType.fontAwesome(.bookmark), forState: .selected)
         
         infoButton = UIButton(origin: bookmarkButton.topRightPoint(),
                               leftInset: 33,
                               width: 16,
                               height: 18)
         self.addSubview(infoButton)
-        infoButton.setIcon(icon: .fontAwesome(.ellipsisH), forState: .normal)
+        infoButton.setIcon(icon: FontType.fontAwesome(.ellipsisH), forState: .normal)
     }
     
     public func setupView(username: String, postDate: Date, minutesLength: Int) {

@@ -9,12 +9,12 @@
 import UIKit
 import Down
 
-protocol ArticleDetailViewControllerDelegate {
+protocol ArticleDetailViewControllerDelegate: NSObjectProtocol {
     func modelDidChange(viewModel: PodcastViewModel)
 }
 
 class ArticleDetailViewController: UIViewController {
-    var delegate: ArticleDetailViewControllerDelegate?
+    weak var delegate: ArticleDetailViewControllerDelegate?
 
     var model = PodcastViewModel()
     var downView: DownView!
