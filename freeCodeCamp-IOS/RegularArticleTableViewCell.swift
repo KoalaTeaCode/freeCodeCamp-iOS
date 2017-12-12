@@ -22,7 +22,7 @@ class RegularArticleTableViewCell: PodcastCellBase {
         didSet {
             self.titleLabel.text = viewModel.podcastTitle
             self.setupImageView(imageURL: viewModel.featuredImageURL)
-            self.setupCell(username: viewModel.postAuthor, postDate: viewModel.getLastUpdatedAsDate()!, minutesLength: 4)
+            self.setupCell(username: "", postDate: viewModel.getLastUpdatedAsDate()!, minutesLength: 4)
         }
     }
     

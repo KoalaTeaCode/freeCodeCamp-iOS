@@ -11,12 +11,12 @@ import Foundation
 public struct PodcastViewModel: Codable {
     let _id: String
     var podcastTitle: String
-    let encodedPodcastDescription: String
+//    let encodedPodcastDescription: String
     let summary: String?
     let markdown: String?
     let uploadDateiso8601: String
     let postLinkURL: URL?
-    let postAuthor: String
+//    let postAuthor: String
     let categories: [String]?
     var categoriesAsString: String {
         get {
@@ -35,12 +35,12 @@ public struct PodcastViewModel: Codable {
     init(podcast: Podcast) {
         self._id = podcast._id
         self.podcastTitle = podcast.title
-        self.encodedPodcastDescription = podcast.description
+//        self.encodedPodcastDescription = podcast.description
         self.summary = nil
         self.markdown = podcast.markdown
         self.uploadDateiso8601 = podcast.date
-        self.postLinkURL = URL(string: podcast.link)
-        self.postAuthor = podcast.author
+        self.postLinkURL = URL(string: podcast.url)
+//        self.postAuthor = podcast.author
         self.categories = podcast.categories
         self.featuredImageURL = URL(string: podcast.featuredImage ?? "")
         self.totalFavorites = podcast.totalFavorites
@@ -60,12 +60,12 @@ public struct PodcastViewModel: Codable {
         self.categories = []
         self.featuredImageURL = nil
         self.podcastTitle = ""
-        self.encodedPodcastDescription = ""
+//        self.encodedPodcastDescription = ""
         self.summary = nil
         self.markdown = nil
         self.score = 0
         self.totalFavorites = 0
-        self.postAuthor = ""
+//        self.postAuthor = ""
     }
     
     var baseModelRepresentation: Podcast {
@@ -80,7 +80,7 @@ extension PodcastViewModel: Equatable {
             lhs.postLinkURL == rhs.postLinkURL &&
             lhs.categories ?? [] == rhs.categories ?? [] &&
             lhs.featuredImageURL == rhs.featuredImageURL &&
-            lhs.encodedPodcastDescription == rhs.encodedPodcastDescription &&
+//            lhs.encodedPodcastDescription == rhs.encodedPodcastDescription &&
             lhs.score == rhs.score
     }
 }
@@ -106,19 +106,19 @@ extension PodcastViewModel {
     func getHTMLDecodedDescription(completion: @escaping (String) -> Void) {
         DispatchQueue.global().async {
             // slow calculations performed here
-            let decodedString = self.encodedPodcastDescription.htmlDecodedWithSomeEntities ?? ""
-            DispatchQueue.main.async {
-                completion(decodedString)
-            }
+//            let decodedString = self.encodedPodcastDescription.htmlDecodedWithSomeEntities ?? ""
+//            DispatchQueue.main.async {
+//                completion(decodedString)
+//            }
         }
     }
     func getHTMLDecodedAttributedString(completion: @escaping (NSMutableAttributedString?) -> Void) {
         DispatchQueue.global().async {
             // slow calculations performed here
-            let decodedString = self.encodedPodcastDescription.htmlDecodedAsAttributedString
-            DispatchQueue.main.async {
-                completion(NSMutableAttributedString(attributedString: decodedString!))
-            }
+//            let decodedString = self.encodedPodcastDescription.htmlDecodedAsAttributedString
+//            DispatchQueue.main.async {
+//                completion(NSMutableAttributedString(attributedString: decodedString!))
+//            }
         }
     }
 }

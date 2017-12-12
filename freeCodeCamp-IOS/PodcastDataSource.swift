@@ -47,7 +47,7 @@ class PodcastDataSource: DataSource {
                 //@TODO: Guard
                 let filteredObjects = returnedData?.filter({ (podcast) -> Bool in
                     return podcast.categories!.contains(filterObject.categories) &&
-                        podcast.type == filterObject.type
+                         podcast.type == filterObject.type
                 })
                 
                 let dateString = filterObject.lastDate
