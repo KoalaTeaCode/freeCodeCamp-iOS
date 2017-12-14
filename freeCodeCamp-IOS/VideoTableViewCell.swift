@@ -101,21 +101,19 @@ class VideoTableViewCell: VideoCellBase {
     private var skeletonDateLabel: GradientContainerView!
     
     private func setupSkeletonView() {
-//        let newContentView = UIView(width: 375, height: 144)
-//        self.contentView.frame = newContentView.frame
         self.contentView.backgroundColor = .white
         
         self.skeletonImageView = GradientContainerView(origin: thumbnailImageView.topLeftPoint(),
-                                                       width: thumbnailImageView.width,
-                                                       height: thumbnailImageView.height)
+                                                       width: 345,
+                                                       height: 195)
         
         self.skeletonTitleLabel = GradientContainerView(origin: titleLabel.topLeftPoint(),
-                                                        width: titleLabel.width,
-                                                        height: titleLabel.height)
+                                                        width: 345,
+                                                        height: 45)
         
         self.skeletonDateLabel = GradientContainerView(origin: dateLabel.topLeftPoint(),
-                                                       width: dateLabel.width,
-                                                       height: dateLabel.height)
+                                                       width: 345,
+                                                       height: 16)
         
         
         self.skeletonImageView.backgroundColor = UIColor(red:0.87, green:0.87, blue:0.87, alpha:1.0)

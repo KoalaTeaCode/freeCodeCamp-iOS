@@ -119,13 +119,13 @@ enum PodcastCategoryIds: String {
 public struct Podcast: Codable {
     let _id: String
     let title: String
-    let description: String
-    let summary: String?
+//    let description: String
+//    let summary: String?
     let markdown: String?
     let date: String
-    let link: String
-    let guid: String
-    let author: String
+    let url: String
+//    let guid: String
+//    let author: String
     let categories: [String]?
     let featuredImage: String?
     let totalFavorites: Int
@@ -139,7 +139,7 @@ extension Podcast: Equatable {
     public static func ==(lhs: Podcast, rhs: Podcast) -> Bool {
         return lhs._id == rhs._id &&
             lhs.date == rhs.date &&
-            lhs.link == rhs.link &&
+//            lhs.link == rhs.link &&
             lhs.categories ?? [] == rhs.categories ?? [] &&
             lhs.featuredImage == rhs.featuredImage &&
             lhs.score == rhs.score &&
@@ -167,19 +167,19 @@ extension Podcast {
     init(viewModel: PodcastViewModel) {
         self._id = viewModel._id
         self.title = viewModel.podcastTitle
-        self.description = viewModel.encodedPodcastDescription
-        self.guid = ""
+//        self.description = viewModel.encodedPodcastDescription
+//        self.guid = ""
         self.markdown = viewModel.markdown
-        self.author = viewModel.postAuthor
+//        self.author = viewModel.postAuthor
         self.totalFavorites = viewModel.totalFavorites
         self.type = viewModel.podcastTitle
-        self.summary = viewModel.summary
+//        self.summary = viewModel.summary
         self.date = viewModel.uploadDateiso8601
-        var link = ""
+        var url = ""
         if let postLinkString = viewModel.postLinkURL?.absoluteString {
-            link = postLinkString
+            url = postLinkString
         }
-        self.link = link
+        self.url = url
         self.categories = viewModel.categories
         var featuredImage = ""
         if let featuredImageUrlString = viewModel.featuredImageURL?.absoluteString {
