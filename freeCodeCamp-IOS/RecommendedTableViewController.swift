@@ -112,7 +112,10 @@ class RecommendedTableViewController<T: PodcastCellBase>: UITableViewController 
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let viewModel = viewModelController.viewModel(at: indexPath.row) {
+        let viewModels = viewModelController
+            .getModelsForGroup(group: self.sections[indexPath.section])
+        
+        if let viewModel = viewModels[indexPath.row] {
             let vc = ArticleDetailViewController()
             vc.model = viewModel
             vc.delegate = self
